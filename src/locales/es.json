@@ -1,0 +1,60 @@
+{
+  "common": {
+    "appName": "keeplocal",
+    "tagline": "Herramientas web privadas, sin rastreo y locales en tu navegador.",
+    "backToHome": "Volver al Inicio",
+    "language": "Idioma",
+    "english": "English",
+    "spanish": "Español"
+  },
+  "home": {
+    "heroTitle": "Herramientas Web con Privacidad Absoluta",
+    "heroSubtitle": "Todas las operaciones se ejecutan 100% en tu navegador. Sin bases de datos, sin telemetría, sin rastreo ni inicios de sesión. Seguro por diseño.",
+    "ctaButton": "Iniciar Record Once",
+    "featuresTitle": "¿Por qué KeepLocal?",
+    "features": {
+      "local": {
+        "title": "100% Local en el Navegador",
+        "description": "Tus archivos y grabaciones nunca tocan un servidor. Los fragmentos se almacenan directamente en la RAM de tu navegador."
+      },
+      "privacy": {
+        "title": "Cero Rastreo",
+        "description": "Sin cookies, sin registros en bases de datos, sin telemetría. Ni siquiera sabemos que estás aquí."
+      },
+      "offline": {
+        "title": "Primero Sin Conexión",
+        "description": "Una vez cargada la web, puedes usar las herramientas sin internet. Perfecto para contenido sensible."
+      },
+      "openSource": {
+        "title": "Código Abierto",
+        "description": "Código totalmente transparente. Puedes inspeccionarlo y verificar el procesamiento local por ti mismo."
+      }
+    }
+  },
+  "recorder": {
+    "title": "Record Once",
+    "subtitle": "Graba tu cámara, pantalla o micrófono completamente sin conexión y descarga el archivo directamente en tu equipo.",
+    "permissionGateTitle": "¿Listo para grabar?",
+    "permissionGateDesc": "Para comenzar la grabación, necesitamos acceso a los dispositivos multimedia. Todo el proceso ocurre localmente en tu navegador.",
+    "grantPermissions": "Conceder Permisos",
+    "audioSource": "Fuente de Audio",
+    "videoSource": "Fuente de Video",
+    "noVideo": "Sin Video",
+    "camera": "Cámara (Webcam)",
+    "screen": "Captura de Pantalla",
+    "noAudio": "Sin Audio (Silenciado)",
+    "microphone": "Micrófono",
+    "startRecording": "Iniciar Grabación",
+    "stopRecording": "Detener Grabación",
+    "pauseRecording": "Pausar",
+    "resumeRecording": "Reanudar",
+    "downloadRecording": "Descargar Grabación",
+    "recordNew": "Grabar Otra Vez",
+    "maxDurationWarning": "Nota: La grabación se almacena en la memoria RAM de tu computadora. Recomendamos no exceder los 5 minutos para evitar problemas de memoria.",
+    "recordingState": "Grabando...",
+    "pausedState": "Pausado",
+    "idleState": "Listo para Grabar",
+    "downloadReady": "Grabación finalizada. Tu archivo está listo para descargar.",
+    "errorDevices": "Error al acceder a los dispositivos multimedia. Por favor verifica los permisos en la barra de tu navegador."
+  }
+}

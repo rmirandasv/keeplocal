@@ -1,0 +1,60 @@
+{
+  "common": {
+    "appName": "keeplocal",
+    "tagline": "Private, zero-tracking, client-side web tools.",
+    "backToHome": "Back to Home",
+    "language": "Language",
+    "english": "English",
+    "spanish": "Español"
+  },
+  "home": {
+    "heroTitle": "Privacy-First Web Tools",
+    "heroSubtitle": "All operations run 100% locally in your browser. No databases, no telemetry, no tracking, no logins. Air-gapped secure by design.",
+    "ctaButton": "Launch Record Once",
+    "featuresTitle": "Why KeepLocal?",
+    "features": {
+      "local": {
+        "title": "100% Browser Local",
+        "description": "Your files and media never touch a server. Chunks are buffered directly in your browser's memory."
+      },
+      "privacy": {
+        "title": "Zero Tracking",
+        "description": "No cookies, no database logging, no telemetry. We don't even know you're here."
+      },
+      "offline": {
+        "title": "Offline-First",
+        "description": "Once loaded, you can run these tools completely offline. Perfect for sensitive content."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Fully transparent codebase. Inspect the code, verify the local-only execution yourself."
+      }
+    }
+  },
+  "recorder": {
+    "title": "Record Once",
+    "subtitle": "Record your camera, screen, or microphone completely offline. Save directly to your local drive.",
+    "permissionGateTitle": "Ready to capture?",
+    "permissionGateDesc": "To start recording, we need permission to access your media devices. All capturing and processing runs locally in your browser.",
+    "grantPermissions": "Grant Permissions",
+    "audioSource": "Audio Source",
+    "videoSource": "Video Source",
+    "noVideo": "No Video",
+    "camera": "Camera (Webcam)",
+    "screen": "Screen Capture",
+    "noAudio": "No Audio (Muted)",
+    "microphone": "Microphone",
+    "startRecording": "Start Recording",
+    "stopRecording": "Stop Recording",
+    "pauseRecording": "Pause",
+    "resumeRecording": "Resume",
+    "downloadRecording": "Download Recording",
+    "recordNew": "Record Another",
+    "maxDurationWarning": "Note: Recording is stored in your computer's RAM. We recommend keeping clips under 5 minutes to prevent out-of-memory errors.",
+    "recordingState": "Recording...",
+    "pausedState": "Paused",
+    "idleState": "Ready to Record",
+    "downloadReady": "Recording completed. Your file is ready to download.",
+    "errorDevices": "Failed to access media devices. Please verify permissions in your browser bar."
+  }
+}
