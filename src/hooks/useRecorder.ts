@@ -197,10 +197,10 @@ export function useRecorder() {
   // Clean up on unmount
   useEffect(() => {
     return () => {
-      stopTracks();
+      streamTracksRef.current.forEach((track) => track.stop());
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [stopTracks]);
+  }, []);
 
   // Start Recording
   const startRecording = useCallback(async () => {
@@ -208,18 +208,18 @@ export function useRecorder() {
     chunksRef.current = [];
     setRecordingTime(0);
 
-    // Make sure we have a fresh up-to-date stream
-    await updatePreviewStream();
+    if (!stream) {
+      setErrorMsg("errorDevices");
+      return;
+    }
 
-    if (!streamTracksRef.current || streamTracksRef.current.length === 0) {
+    const tracks = stream.getTracks();
+    if (tracks.length === 0) {
       setErrorMsg("errorDevices");
       return;
     }
 
     try {
-      const combinedStream = new MediaStream(streamTracksRef.current);
-      setStream(combinedStream);
-
       // Determine appropriate mime type
       let options = { mimeType: "video/webm;codecs=vp9,opus" };
       if (!MediaRecorder.isTypeSupported(options.mimeType)) {
@@ -233,7 +233,7 @@ export function useRecorder() {
         options = { mimeType: "video/mp4" };
       }
 
-      const recorder = new MediaRecorder(combinedStream, options);
+      const recorder = new MediaRecorder(stream, options);
       mediaRecorderRef.current = recorder; // Store reference
 
       recorder.ondataavailable = (event) => {
@@ -252,7 +252,6 @@ export function useRecorder() {
 
       // 1-second timeslices to gather chunks and avoid OOM crash or lost data
       recorder.start(1000);
-      mediaRecorderRef.current = recorder;
       setStatus("recording");
 
       // Start timer
@@ -274,7 +273,7 @@ export function useRecorder() {
       setStatus("error");
       setErrorMsg("errorDevices");
     }
-  }, [updatePreviewStream, stopTracks]);
+  }, [stream, stopTracks]);
 
   // Pause Recording
   const pauseRecording = useCallback(() => {

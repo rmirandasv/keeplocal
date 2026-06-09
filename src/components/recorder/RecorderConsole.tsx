@@ -52,8 +52,12 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
 
   // Sync preview stream to video element
   useEffect(() => {
-    if (previewVideoRef.current) {
-      previewVideoRef.current.srcObject = stream;
+    const video = previewVideoRef.current;
+    if (video && stream) {
+      video.srcObject = stream;
+      video.play().catch((err) => {
+        console.warn("Video preview play interrupted:", err);
+      });
     }
   }, [stream]);
 
