@@ -36,6 +36,7 @@ export function useRecorder() {
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const streamTracksRef = useRef<MediaStreamTrack[]>([]);
+  const isMountedRef = useRef<boolean>(true);
 
   // Stop all active tracks helper
   const stopTracks = useCallback(() => {
@@ -146,6 +147,11 @@ export function useRecorder() {
           audio: audioSource === "microphone", // Request display audio if needed
         });
 
+        if (!isMountedRef.current) {
+          displayStream.getTracks().forEach((track) => track.stop());
+          return;
+        }
+
         localStream = displayStream;
         streamTracksRef.current = [...displayStream.getTracks()];
 
@@ -155,6 +161,13 @@ export function useRecorder() {
             const micStream = await navigator.mediaDevices.getUserMedia({
               audio: selectedAudioId ? { deviceId: { exact: selectedAudioId } } : true,
             });
+
+            if (!isMountedRef.current) {
+              micStream.getTracks().forEach((track) => track.stop());
+              displayStream.getTracks().forEach((track) => track.stop());
+              return;
+            }
+
             streamTracksRef.current.push(...micStream.getAudioTracks());
 
             // Create merged stream
@@ -170,6 +183,12 @@ export function useRecorder() {
       } else if (Object.keys(constraints).length > 0) {
         // Camera and/or mic capture
         localStream = await navigator.mediaDevices.getUserMedia(constraints);
+
+        if (!isMountedRef.current) {
+          localStream.getTracks().forEach((track) => track.stop());
+          return;
+        }
+
         streamTracksRef.current = [...localStream.getTracks()];
       }
 
@@ -195,7 +214,9 @@ export function useRecorder() {
 
   // Clean up on unmount
   useEffect(() => {
+    isMountedRef.current = true;
     return () => {
+      isMountedRef.current = false;
       streamTracksRef.current.forEach((track) => track.stop());
       if (timerRef.current) clearInterval(timerRef.current);
     };
