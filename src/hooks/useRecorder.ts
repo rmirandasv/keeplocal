@@ -35,8 +35,6 @@ export function useRecorder() {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const audioContextRef = useRef<AudioContext | null>(null);
-  const audioDestinationRef = useRef<MediaStreamAudioDestinationNode | null>(null);
   const streamTracksRef = useRef<MediaStreamTrack[]>([]);
 
   // Stop all active tracks helper
@@ -89,7 +87,7 @@ export function useRecorder() {
 
       setStatus("idle");
       await enumerateDevices();
-    } catch (err: any) {
+    } catch (err) {
       console.warn("Could not get both video/audio permission, trying individually...", err);
       // Try audio only as fallback
       try {
@@ -97,7 +95,7 @@ export function useRecorder() {
         tempAudio.getTracks().forEach((track) => track.stop());
         setStatus("idle");
         await enumerateDevices();
-      } catch (innerErr: any) {
+      } catch {
         setStatus("unallowed");
         setErrorMsg("errorDevices");
       }
@@ -176,7 +174,7 @@ export function useRecorder() {
       }
 
       setStream(localStream);
-    } catch (err: any) {
+    } catch (err) {
       console.error("Error updating preview stream:", err);
       // Only set error if we are actively setting up
       if (status === "preparing") {
@@ -189,6 +187,7 @@ export function useRecorder() {
   // Trigger preview update on configuration change
   useEffect(() => {
     if (status === "idle") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       updatePreviewStream();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -268,7 +267,7 @@ export function useRecorder() {
           return prev + 1;
         });
       }, 1000);
-    } catch (err: any) {
+    } catch (err) {
       console.error("Failed to start MediaRecorder:", err);
       setStatus("error");
       setErrorMsg("errorDevices");

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRecorder, RecorderStatus } from "@/hooks/useRecorder";
+import { useRecorder } from "@/hooks/useRecorder";
 import {
   Video,
   Monitor,
@@ -16,13 +16,14 @@ import {
   Camera,
   CheckCircle,
 } from "lucide-react";
+import type { Dictionary } from "@/utils/i18n";
 
 interface RecorderConsoleProps {
   lang: string;
-  dict: any; // Localized dictionary for recorder
+  dict: Dictionary["recorder"];
 }
 
-export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
+export default function RecorderConsole({ dict }: RecorderConsoleProps) {
   const {
     status,
     videoSource,
@@ -64,6 +65,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
   // Real-time Audio Level Analyzer using Web Audio API
   useEffect(() => {
     if (!stream || audioSource === "none" || status === "stopped") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAudioLevel(0);
       return;
     }
@@ -80,7 +82,9 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
     let animationFrameId: number;
 
     try {
-      audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const WebkitAudioContext = (window as unknown as { webkitAudioContext: typeof AudioContext })
+        .webkitAudioContext;
+      audioContext = new (window.AudioContext || WebkitAudioContext)();
       source = audioContext.createMediaStreamSource(stream);
       analyser = audioContext.createAnalyser();
       analyser.fftSize = 64; // Small size for responsive volume level
