@@ -9,10 +9,13 @@
   },
   "home": {
     "heroTitle": "Herramientas Web con Privacidad Absoluta",
-    "heroSubtitle": "Todas las operaciones se ejecutan 100% en tu navegador. Sin bases de datos, sin telemetría, sin rastreo ni inicios de sesión. Seguro por diseño.",
+    "heroSubtitle": "Una suite creciente de herramientas locales para grabación y media. Todo en tu navegador — sin servidores, sin rastreo ni inicios de sesión.",
     "privacyBadge": "100% Local • Sin Cookies",
-    "ctaButton": "Iniciar Record Once",
+    "ctaRecordOnce": "Record Once",
+    "ctaScreenToGif": "Screen to GIF",
+    "ctaExplore": "Ver todas las herramientas",
     "githubCta": "Ver Código",
+    "gifReadyLabel": "Listo para exportar",
     "signalPath": ["Navegador", "Buffer RAM", "Descarga Local"],
     "featuresTitle": "¿Por qué KeepLocal?",
     "toolsTitle": "Herramientas Disponibles",
@@ -49,7 +52,7 @@
     "features": {
       "local": {
         "title": "100% Local en el Navegador",
-        "description": "Tus archivos y grabaciones nunca tocan un servidor. Los fragmentos se almacenan directamente en la RAM de tu navegador."
+        "description": "Tus archivos, grabaciones y GIFs nunca tocan un servidor. Todo se procesa directamente en la memoria de tu navegador."
       },
       "privacy": {
         "title": "Cero Rastreo",
@@ -101,6 +104,10 @@
     "subtitle": "Graba tu pantalla y conviértela directamente en un GIF animado. Sin servidores ni subidas de archivos.",
     "converting": "Convirtiendo a GIF... Esto puede tardar unos segundos.",
     "downloadGif": "Descargar GIF",
+    "createGif": "Crear GIF",
+    "gifCreatedTitle": "GIF Creado",
+    "gifCreatedDesc": "Tu GIF animado se ha renderizado en memoria y está listo para usar.",
+    "configDeckTitle": "Panel de Configuración GIF",
     "fpsLabel": "Fotogramas por segundo (FPS)",
     "widthLabel": "Ancho del GIF (px)",
     "previewTitle": "Vista Previa del GIF",

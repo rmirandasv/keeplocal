@@ -260,7 +260,7 @@ export default function ScreenToGifConsole({ dict }: ScreenToGifConsoleProps) {
         {!generatedGifUrl ? (
           <div className="p-6 rounded-2xl bg-[#18191e] border border-zinc-800/60 flex flex-col gap-6">
             <h2 className="text-sm font-bold tracking-wider text-zinc-400 uppercase font-mono border-b border-zinc-800/60 pb-3">
-              GIF Config Deck
+              {dict.screenToGif.configDeckTitle}
             </h2>
 
             {/* Config: Width */}
@@ -325,7 +325,7 @@ export default function ScreenToGifConsole({ dict }: ScreenToGifConsoleProps) {
                     className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-zinc-950 font-semibold text-sm transition-all duration-200 active:scale-98 disabled:opacity-50"
                   >
                     <FileImage className="w-4 h-4" />
-                    <span>Create GIF</span>
+                    <span>{dict.screenToGif.createGif}</span>
                   </button>
 
                   <button
@@ -353,9 +353,11 @@ export default function ScreenToGifConsole({ dict }: ScreenToGifConsoleProps) {
               <div className="w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-6 h-6 text-teal-400" />
               </div>
-              <h2 className="text-sm font-bold text-white mb-2 font-mono">GIF Created</h2>
+              <h2 className="text-sm font-bold text-white mb-2 font-mono">
+                {dict.screenToGif.gifCreatedTitle}
+              </h2>
               <p className="text-xs text-zinc-400 leading-relaxed font-light">
-                Your animated GIF has been rendered in-memory and is ready for use.
+                {dict.screenToGif.gifCreatedDesc}
               </p>
             </div>
 

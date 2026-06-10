@@ -48,7 +48,10 @@ export default async function RecordOncePage({ params }: PageProps) {
         <RecorderConsole lang={lang} dict={dict.recorder} />
       </main>
 
-      <SiteFooter lang={lang} dict={{ ...dict.common, footer: dict.home.footer }} />
+      <SiteFooter
+        lang={lang}
+        dict={{ ...dict.common, footer: dict.home.footer, tools: dict.home.tools }}
+      />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import ToolCard from "@/components/marketing/ToolCard";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import FeatureCard from "@/components/marketing/FeatureCard";
 import TrustStrip from "@/components/marketing/TrustStrip";
-import { ShieldCheck, Globe, Code, Zap } from "lucide-react";
+import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -34,6 +34,8 @@ export default async function LocalizedHomePage({ params }: PageProps) {
     },
   ];
 
+  const footerDict = { ...dict.common, footer: dict.home.footer, tools: dict.home.tools };
+
   return (
     <div className="canvas-texture flex min-h-screen flex-col">
       <SiteHeader lang={lang} dict={dict.common} />
@@ -45,11 +47,15 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           heroTitle={dict.home.heroTitle}
           heroSubtitle={dict.home.heroSubtitle}
           privacyBadge={dict.home.privacyBadge}
-          ctaButton={dict.home.ctaButton}
+          ctaRecordOnce={dict.home.ctaRecordOnce}
+          ctaScreenToGif={dict.home.ctaScreenToGif}
+          ctaExplore={dict.home.ctaExplore}
           githubCta={dict.home.githubCta}
           signalPath={dict.home.signalPath as [string, string, string]}
-          idleLabel={dict.recorder.idleState}
+          recordOnceLabel={dict.home.tools.recordOnce.title}
           recordingLabel={dict.recorder.recordingState}
+          screenToGifLabel={dict.home.tools.screenToGif.title}
+          gifReadyLabel={dict.home.gifReadyLabel}
         />
 
         {/* Trust strip */}
@@ -58,17 +64,23 @@ export default async function LocalizedHomePage({ params }: PageProps) {
         </div>
 
         {/* Available Tools */}
-        <section className="mb-16 md:mb-24">
+        <section id="tools" className="mb-16 scroll-mt-24 md:mb-24">
           <h2 className="mb-8 text-center text-2xl font-semibold tracking-[-0.02em] text-foreground-primary">
             {dict.home.toolsTitle}
           </h2>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <ToolCard
               title={dict.home.tools.recordOnce.title}
               description={dict.home.tools.recordOnce.description}
               ctaLabel={dict.home.tools.recordOnce.cta}
               badges={dict.home.tools.recordOnce.badges}
               href={`/${lang}/record-once`}
+              glow="brand"
+              icons={[
+                { icon: Video, label: "Video", color: "text-brand" },
+                { icon: Monitor, label: "Screen", color: "text-accent-sky" },
+                { icon: Mic, label: "Audio", color: "text-accent-emerald" },
+              ]}
             />
             <ToolCard
               title={dict.home.tools.screenToGif.title}
@@ -76,6 +88,12 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               ctaLabel={dict.home.tools.screenToGif.cta}
               badges={dict.home.tools.screenToGif.badges}
               href={`/${lang}/screen-to-gif`}
+              glow="sky"
+              icons={[
+                { icon: Monitor, label: "Screen", color: "text-accent-sky" },
+                { icon: FileImage, label: "GIF", color: "text-accent-emerald" },
+                { icon: Gauge, label: "FPS", color: "text-brand" },
+              ]}
             />
           </div>
         </section>
@@ -126,7 +144,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
         </section>
       </main>
 
-      <SiteFooter lang={lang} dict={{ ...dict.common, footer: dict.home.footer }} />
+      <SiteFooter lang={lang} dict={footerDict} />
     </div>
   );
 }

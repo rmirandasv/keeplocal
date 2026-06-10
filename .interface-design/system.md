@@ -71,8 +71,8 @@ All colors are defined as CSS custom properties in `src/app/globals.css` and map
 2. **SiteFooter:** Three-column grid (brand, tools, links) on desktop.
 
 ### Marketing (Landing)
-3. **HeroSection:** Split layout — copy left, ProductPreview right. Includes SignalPath and dual CTAs.
-4. **ProductPreview:** Static viewfinder mock with REC badge, telemetry bar, VU meter animation, source selector mock.
+3. **HeroSection:** Split layout — copy left, ToolsPreview right (dual tool mocks). Dual CTAs for Record Once + Screen to GIF.
+4. **ToolsPreview:** Stacked mini previews for Record Once and Screen to GIF.
 5. **SignalPath:** Three-step flow with animated connector lines and "no server" pill.
 6. **ToolCard:** Featured tool with badges, description, and mini deck icons.
 7. **HowItWorks:** Three rack-style modules with monospace step numbers (01, 02, 03).

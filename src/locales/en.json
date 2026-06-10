@@ -9,10 +9,13 @@
   },
   "home": {
     "heroTitle": "Privacy-First Web Tools",
-    "heroSubtitle": "All operations run 100% locally in your browser. No databases, no telemetry, no tracking, no logins. Air-gapped secure by design.",
+    "heroSubtitle": "A growing suite of local-first tools for recording and media. Everything runs in your browser — no servers, no tracking, no logins.",
     "privacyBadge": "100% Client-Side • No Cookies",
-    "ctaButton": "Launch Record Once",
+    "ctaRecordOnce": "Record Once",
+    "ctaScreenToGif": "Screen to GIF",
+    "ctaExplore": "Explore all tools",
     "githubCta": "View Source",
+    "gifReadyLabel": "Ready to export",
     "signalPath": ["Browser", "RAM Buffer", "Local Download"],
     "featuresTitle": "Why KeepLocal?",
     "toolsTitle": "Available Tools",
@@ -49,7 +52,7 @@
     "features": {
       "local": {
         "title": "100% Browser Local",
-        "description": "Your files and media never touch a server. Chunks are buffered directly in your browser's memory."
+        "description": "Your files, recordings, and GIFs never touch a server. Everything is buffered and processed directly in your browser's memory."
       },
       "privacy": {
         "title": "Zero Tracking",
@@ -101,6 +104,10 @@
     "subtitle": "Record your screen and convert it directly into an animated GIF. No servers, no uploads.",
     "converting": "Converting to GIF... This might take a few seconds.",
     "downloadGif": "Download GIF",
+    "createGif": "Create GIF",
+    "gifCreatedTitle": "GIF Created",
+    "gifCreatedDesc": "Your animated GIF has been rendered in-memory and is ready for use.",
+    "configDeckTitle": "GIF Config Deck",
     "fpsLabel": "Frames per second (FPS)",
     "widthLabel": "GIF Width (px)",
     "previewTitle": "GIF Preview",

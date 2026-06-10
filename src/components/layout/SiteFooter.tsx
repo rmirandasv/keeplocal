@@ -5,10 +5,15 @@ const GITHUB_URL = "https://github.com/keeplocal/keeplocal";
 
 interface SiteFooterProps {
   lang: string;
-  dict: Dictionary["common"] & Pick<Dictionary["home"], "footer">;
+  dict: Dictionary["common"] & Pick<Dictionary["home"], "footer" | "tools">;
 }
 
 export default function SiteFooter({ lang, dict }: SiteFooterProps) {
+  const toolLinks = [
+    { name: dict.tools.recordOnce.title, href: `/${lang}/record-once` },
+    { name: dict.tools.screenToGif.title, href: `/${lang}/screen-to-gif` },
+  ];
+
   return (
     <footer className="border-t border-border-subtle bg-surface-footer">
       <div className="mx-auto max-w-6xl px-6 py-12">
@@ -26,14 +31,16 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
           <div>
             <h3 className="section-label mb-3">{dict.footer.toolsLabel}</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href={`/${lang}/record-once`}
-                  className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
-                >
-                  Record Once
-                </Link>
-              </li>
+              {toolLinks.map((tool) => (
+                <li key={tool.href}>
+                  <Link
+                    href={tool.href}
+                    className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
+                  >
+                    {tool.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

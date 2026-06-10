@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ShieldCheck, Video } from "lucide-react";
-import ProductPreview from "./ProductPreview";
+import { ShieldCheck, Monitor, Video } from "lucide-react";
+import ToolsPreview from "./ToolsPreview";
 import SignalPath from "./SignalPath";
 import HeroAtmosphere from "./HeroAtmosphere";
 
@@ -11,11 +11,15 @@ interface HeroSectionProps {
   heroTitle: string;
   heroSubtitle: string;
   privacyBadge: string;
-  ctaButton: string;
+  ctaRecordOnce: string;
+  ctaScreenToGif: string;
+  ctaExplore: string;
   githubCta: string;
   signalPath: [string, string, string];
-  idleLabel: string;
+  recordOnceLabel: string;
   recordingLabel: string;
+  screenToGifLabel: string;
+  gifReadyLabel: string;
 }
 
 export default function HeroSection({
@@ -23,11 +27,15 @@ export default function HeroSection({
   heroTitle,
   heroSubtitle,
   privacyBadge,
-  ctaButton,
+  ctaRecordOnce,
+  ctaScreenToGif,
+  ctaExplore,
   githubCta,
   signalPath,
-  idleLabel,
+  recordOnceLabel,
   recordingLabel,
+  screenToGifLabel,
+  gifReadyLabel,
 }: HeroSectionProps) {
   return (
     <section className="hero-atmosphere relative w-full overflow-hidden pb-4 pt-2">
@@ -49,22 +57,39 @@ export default function HeroSection({
             {heroSubtitle}
           </p>
 
-          <div className="mt-9 flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <Link href={`/${lang}/record-once`} className="btn-primary group">
-              <Video
-                className="h-[18px] w-[18px] transition-transform group-hover:scale-105"
-                aria-hidden
-              />
-              <span>{ctaButton}</span>
-            </Link>
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary"
-            >
-              {githubCta}
-            </a>
+          <div className="mt-9 flex w-full flex-col gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <Link href={`/${lang}/record-once`} className="btn-primary group">
+                <Video
+                  className="h-[18px] w-[18px] transition-transform group-hover:scale-105"
+                  aria-hidden
+                />
+                <span>{ctaRecordOnce}</span>
+              </Link>
+              <Link href={`/${lang}/screen-to-gif`} className="btn-secondary group">
+                <Monitor
+                  className="h-[18px] w-[18px] text-accent-sky transition-transform group-hover:scale-105"
+                  aria-hidden
+                />
+                <span>{ctaScreenToGif}</span>
+              </Link>
+            </div>
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <a href="#tools" className="text-sm text-foreground-tertiary transition-colors hover:text-foreground-secondary">
+                {ctaExplore}
+              </a>
+              <span className="hidden text-foreground-muted/40 sm:inline" aria-hidden>
+                ·
+              </span>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-foreground-tertiary transition-colors hover:text-foreground-secondary"
+              >
+                {githubCta}
+              </a>
+            </div>
           </div>
 
           <div className="mt-11 w-full">
@@ -72,9 +97,14 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Product preview column */}
+        {/* Tools preview column */}
         <div className="relative flex justify-center lg:justify-end">
-          <ProductPreview idleLabel={idleLabel} recordingLabel={recordingLabel} />
+          <ToolsPreview
+            recordOnceLabel={recordOnceLabel}
+            recordingLabel={recordingLabel}
+            screenToGifLabel={screenToGifLabel}
+            gifReadyLabel={gifReadyLabel}
+          />
         </div>
       </div>
     </section>

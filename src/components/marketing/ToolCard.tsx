@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, Mic, Monitor, Video } from "lucide-react";
+import { ArrowRight, type LucideIcon } from "lucide-react";
+
+interface ToolIcon {
+  icon: LucideIcon;
+  label: string;
+  color: string;
+}
 
 interface ToolCardProps {
   title: string;
@@ -7,14 +13,30 @@ interface ToolCardProps {
   ctaLabel: string;
   badges: string[];
   href: string;
+  icons?: ToolIcon[];
+  glow?: "brand" | "sky";
 }
 
-export default function ToolCard({ title, description, ctaLabel, badges, href }: ToolCardProps) {
+const defaultIcons: ToolIcon[] = [];
+
+export default function ToolCard({
+  title,
+  description,
+  ctaLabel,
+  badges,
+  href,
+  icons = defaultIcons,
+  glow = "brand",
+}: ToolCardProps) {
+  const glowClass =
+    glow === "sky"
+      ? "bg-accent-sky/10 group-hover:bg-accent-sky/14"
+      : "bg-brand/10 group-hover:bg-brand/14";
+
   return (
     <div className="group relative overflow-hidden rounded-2xl bento-card">
-      {/* Spectrum corner glow */}
       <div
-        className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand/10 blur-3xl transition-opacity duration-500 group-hover:bg-brand/14"
+        className={`pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full blur-3xl transition-opacity duration-500 ${glowClass}`}
         aria-hidden
       />
       <div
@@ -48,22 +70,19 @@ export default function ToolCard({ title, description, ctaLabel, badges, href }:
           </Link>
         </div>
 
-        {/* Mini deck icons */}
-        <div className="flex items-center justify-center gap-3 md:flex-col md:gap-3">
-          {[
-            { icon: Video, label: "Video", color: "text-brand" },
-            { icon: Monitor, label: "Screen", color: "text-accent-sky" },
-            { icon: Mic, label: "Audio", color: "text-accent-emerald" },
-          ].map(({ icon: Icon, label, color }) => (
-            <div
-              key={label}
-              className="flex h-[3.25rem] w-[3.25rem] flex-col items-center justify-center rounded-xl border border-border-default bg-foreground-primary/[0.02] transition-all duration-300 group-hover:border-border-emphasis"
-            >
-              <Icon className={`mb-0.5 h-4 w-4 ${color}`} aria-hidden />
-              <span className="font-mono text-[8px] text-foreground-muted">{label}</span>
-            </div>
-          ))}
-        </div>
+        {icons.length > 0 && (
+          <div className="flex items-center justify-center gap-3 md:flex-col md:gap-3">
+            {icons.map(({ icon: Icon, label, color }) => (
+              <div
+                key={label}
+                className="flex h-[3.25rem] w-[3.25rem] flex-col items-center justify-center rounded-xl border border-border-default bg-foreground-primary/[0.02] transition-all duration-300 group-hover:border-border-emphasis"
+              >
+                <Icon className={`mb-0.5 h-4 w-4 ${color}`} aria-hidden />
+                <span className="font-mono text-[8px] text-foreground-muted">{label}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
