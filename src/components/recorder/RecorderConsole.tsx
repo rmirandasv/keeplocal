@@ -156,9 +156,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
         <div className="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-6">
           <Camera className="w-8 h-8 text-teal-400 animate-pulse" />
         </div>
-        <h2 className="text-xl font-bold text-white mb-3">
-          {dict.permissionGateTitle}
-        </h2>
+        <h2 className="text-xl font-bold text-white mb-3">{dict.permissionGateTitle}</h2>
         <p className="text-zinc-400 text-sm leading-relaxed mb-8 font-light">
           {dict.permissionGateDesc}
         </p>
@@ -185,11 +183,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
         <div className="relative aspect-video rounded-2xl bg-black border border-zinc-800 overflow-hidden group shadow-2xl shadow-black/40">
           {/* Main Display screen */}
           {status === "stopped" && recordedUrl ? (
-            <video
-              src={recordedUrl}
-              controls
-              className="w-full h-full object-contain"
-            />
+            <video src={recordedUrl} controls className="w-full h-full object-contain" />
           ) : videoSource === "none" ? (
             // Audio-only layout
             <div className="w-full h-full flex flex-col items-center justify-center bg-[#07080a] p-6 text-center">
@@ -197,7 +191,10 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
                 {/* Visualizer ring */}
                 <div
                   className="absolute inset-0 rounded-full border border-teal-500/40 transition-all duration-75"
-                  style={{ transform: `scale(${1 + audioLevel / 100})`, opacity: audioSource !== "none" ? 0.3 : 0.1 }}
+                  style={{
+                    transform: `scale(${1 + audioLevel / 100})`,
+                    opacity: audioSource !== "none" ? 0.3 : 0.1,
+                  }}
                 />
                 <Mic className="w-12 h-12 text-teal-400" />
               </div>
@@ -219,9 +216,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
               {/* If no stream detected */}
               {!stream && (
                 <div className="absolute inset-0 flex items-center justify-center bg-[#07080a]">
-                  <span className="text-sm text-zinc-500 font-mono">
-                    {dict.idleState}
-                  </span>
+                  <span className="text-sm text-zinc-500 font-mono">{dict.idleState}</span>
                 </div>
               )}
             </>
@@ -235,16 +230,16 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
                   status === "recording"
                     ? "bg-rose-500 animate-pulse"
                     : status === "paused"
-                    ? "bg-amber-500"
-                    : "bg-teal-500"
+                      ? "bg-amber-500"
+                      : "bg-teal-500"
                 }`}
               />
               <span className="text-zinc-300">
                 {status === "recording"
                   ? dict.recordingState
                   : status === "paused"
-                  ? dict.pausedState
-                  : dict.idleState}
+                    ? dict.pausedState
+                    : dict.idleState}
               </span>
             </div>
           )}
@@ -301,9 +296,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
 
             {/* Video Source selectors */}
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-mono text-zinc-400">
-                {dict.videoSource}
-              </label>
+              <label className="text-xs font-mono text-zinc-400">{dict.videoSource}</label>
               <div className="grid grid-cols-3 gap-1.5 p-1 bg-zinc-950/80 border border-zinc-900 rounded-xl">
                 <button
                   disabled={status === "recording" || status === "paused"}
@@ -346,9 +339,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
 
             {/* Audio Source selectors */}
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-mono text-zinc-400">
-                {dict.audioSource}
-              </label>
+              <label className="text-xs font-mono text-zinc-400">{dict.audioSource}</label>
               <div className="grid grid-cols-2 gap-1.5 p-1 bg-zinc-950/80 border border-zinc-900 rounded-xl">
                 <button
                   disabled={status === "recording" || status === "paused"}
@@ -489,9 +480,7 @@ export default function RecorderConsole({ lang, dict }: RecorderConsoleProps) {
               <div className="w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-6 h-6 text-teal-400" />
               </div>
-              <h2 className="text-sm font-bold text-white mb-2 font-mono">
-                Capture Complete
-              </h2>
+              <h2 className="text-sm font-bold text-white mb-2 font-mono">Capture Complete</h2>
               <p className="text-xs text-zinc-400 leading-relaxed font-light">
                 {dict.downloadReady}
               </p>

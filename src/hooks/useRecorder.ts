@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 export type RecorderStatus =
-  | "unallowed"    // Permisos no solicitados o denegados
-  | "idle"         // Permisos concedidos, listo para configurar/grabar
-  | "preparing"    // Iniciando dispositivos
-  | "recording"    // Grabación activa
-  | "paused"       // Grabación en pausa
-  | "stopped"      // Grabación terminada, archivo listo
-  | "error";       // Error de hardware/permisos
+  | "unallowed" // Permisos no solicitados o denegados
+  | "idle" // Permisos concedidos, listo para configurar/grabar
+  | "preparing" // Iniciando dispositivos
+  | "recording" // Grabación activa
+  | "paused" // Grabación en pausa
+  | "stopped" // Grabación terminada, archivo listo
+  | "error"; // Error de hardware/permisos
 
 export interface MediaDeviceOption {
   id: string;
@@ -53,11 +53,11 @@ export function useRecorder() {
   const enumerateDevices = useCallback(async () => {
     try {
       const devices = await navigator.mediaDevices.enumerateDevices();
-      
+
       const vDevs = devices
         .filter((d) => d.kind === "videoinput")
         .map((d) => ({ id: d.deviceId, label: d.label || `Camera ${d.deviceId.slice(0, 5)}` }));
-      
+
       const aDevs = devices
         .filter((d) => d.kind === "audioinput")
         .map((d) => ({ id: d.deviceId, label: d.label || `Microphone ${d.deviceId.slice(0, 5)}` }));
@@ -83,10 +83,10 @@ export function useRecorder() {
         audio: true,
         video: true,
       });
-      
+
       // Stop temporary stream immediately
       tempStream.getTracks().forEach((track) => track.stop());
-      
+
       setStatus("idle");
       await enumerateDevices();
     } catch (err: any) {
@@ -117,7 +117,7 @@ export function useRecorder() {
   // Update preview stream when choices change (only in idle/preparing state)
   const updatePreviewStream = useCallback(async () => {
     if (status !== "idle" && status !== "preparing" && status !== "unallowed") return;
-    
+
     stopTracks();
     setErrorMsg(null);
 
@@ -147,7 +147,7 @@ export function useRecorder() {
           video: true,
           audio: audioSource === "microphone", // Request display audio if needed
         });
-        
+
         localStream = displayStream;
         streamTracksRef.current = [...displayStream.getTracks()];
 
@@ -158,7 +158,7 @@ export function useRecorder() {
               audio: selectedAudioId ? { deviceId: { exact: selectedAudioId } } : true,
             });
             streamTracksRef.current.push(...micStream.getAudioTracks());
-            
+
             // Create merged stream
             const merged = new MediaStream([
               ...displayStream.getVideoTracks(),

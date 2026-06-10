@@ -10,8 +10,36 @@
   "home": {
     "heroTitle": "Herramientas Web con Privacidad Absoluta",
     "heroSubtitle": "Todas las operaciones se ejecutan 100% en tu navegador. Sin bases de datos, sin telemetría, sin rastreo ni inicios de sesión. Seguro por diseño.",
+    "privacyBadge": "100% Local • Sin Cookies",
     "ctaButton": "Iniciar Record Once",
+    "githubCta": "Ver Código",
+    "signalPath": ["Navegador", "Buffer RAM", "Descarga Local"],
     "featuresTitle": "¿Por qué KeepLocal?",
+    "toolsTitle": "Herramientas Disponibles",
+    "howItWorksTitle": "Cómo Funciona",
+    "howItWorks": {
+      "load": {
+        "title": "Carga",
+        "description": "Páginas estáticas sin backend. Una vez en caché, las herramientas funcionan enteramente en tu navegador."
+      },
+      "process": {
+        "title": "Procesa",
+        "description": "Todos los datos permanecen en la RAM de tu equipo. Nada se envía a un servidor remoto ni a la nube."
+      },
+      "save": {
+        "title": "Guarda",
+        "description": "Descarga archivos solo cuando tú lo decides. Tu contenido nunca abandona tu dispositivo hasta entonces."
+      }
+    },
+    "tools": {
+      "recordOnce": {
+        "title": "Record Once",
+        "description": "Captura audio, video o pantalla con una interfaz de estudio. Los fragmentos se almacenan en RAM con un límite de 5 minutos para evitar errores de memoria.",
+        "cta": "Abrir Record Once",
+        "badges": ["Audio", "Video", "Pantalla"]
+      }
+    },
+    "trustStrip": ["Sin cookies", "Sin analíticas", "Código abierto", "Funciona offline"],
     "features": {
       "local": {
         "title": "100% Local en el Navegador",
@@ -29,6 +57,11 @@
         "title": "Código Abierto",
         "description": "Código totalmente transparente. Puedes inspeccionarlo y verificar el procesamiento local por ti mismo."
       }
+    },
+    "footer": {
+      "toolsLabel": "Herramientas",
+      "linksLabel": "Enlaces",
+      "copyright": "Proyecto de código abierto."
     }
   },
   "recorder": {

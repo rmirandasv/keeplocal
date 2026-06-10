@@ -7,46 +7,92 @@ This document saves the visual language, design constraints, and layout tokens u
 ## 1. Direction and Feel
 * **Concept:** *Cybernetic Studio Deck* — Evoking vintage rack-mount studio recording equipment, analog console boards, and physical tape decks, but executed with ultra-sleek, modern cybernetic aesthetics (glassmorphism, subtle glowing boundaries, and smooth status transitions).
 * **Tone:** Highly secure, private, technical, air-gapped, and local-first.
+* **Refinement (2026):** Delicate minimalism — near-black canvas, hairline borders (`white/6–10%`), mesh gradient atmosphere, pill CTAs, bento grids. Color enters through soft washes (brand teal, emerald, sky, violet) — never decorative rainbow icons.
+* **Signature Element:** *Signal Path* — Browser → RAM Buffer → Local Download with a "no server" indicator. Styled as studio signal routing.
 
 ---
 
 ## 2. Color Palette & Semantics
-All colors are derived from a dark Obsidian-based canvas.
 
-| Token Name | Tailwind/HEX | HSL Equivalent | Use Case |
-| :--- | :--- | :--- | :--- |
-| **Canvas Background** | `bg-[#0f1013]` | `225 10% 6%` | Page-wide root canvas |
-| **Deck Surface-1** | `bg-[#18191e]` | `230 11% 10%` | Primary panels, control card surfaces |
-| **Inset Surface-2** | `bg-zinc-950` | `240 6% 4%` | Viewfinder screens, input dropdowns, nested lists |
-| **Recording Red** | `text-rose-500` / `bg-rose-500` | `348 77% 50%` | Active recording indicators, stop/pause triggers |
-| **Terminal Cyan** | `text-teal-400` / `bg-teal-500` | `173 80% 35%` | Default safe states, active selectors, live level meter |
-| **Analog Amber** | `text-amber-500` / `bg-amber-500` | `35 92% 44%` | Warning state, buffer threshold notifications |
-| **Panel Border** | `border-zinc-800/60` | `240 5% 15%` | Subtle container grid lines |
+All colors are defined as CSS custom properties in `src/app/globals.css` and mapped to Tailwind via `@theme inline`.
+
+| Token | HSL | Use Case |
+| :--- | :--- | :--- |
+| `--canvas` | `0 0% 0%` | Pure near-black page canvas |
+| `--surface-1` | `230 11% 10%` | Primary panels, control card surfaces |
+| `--surface-2` | `240 6% 4%` | Viewfinder screens, input dropdowns, nested lists |
+| `--surface-footer` | `225 12% 5%` | Footer background |
+| `--viewfinder` | `220 15% 3%` | Viewfinder screen black |
+| `--foreground-primary` | `0 0% 100%` | Headlines, primary text |
+| `--foreground-secondary` | `240 5% 65%` | Body copy, descriptions |
+| `--foreground-tertiary` | `240 4% 46%` | Metadata, labels |
+| `--foreground-muted` | `240 5% 34%` | Disabled, placeholders |
+| `--brand` | `173 80% 35%` | Terminal cyan — safe states, CTAs, live meter |
+| `--recording` | `348 77% 50%` | REC indicators, privacy emphasis |
+| `--warning` | `35 92% 44%` | Warning state, buffer threshold |
+| `--border-subtle` | `0 0% 100% / 0.06` | Hairline separation |
+| `--border-default` | `0 0% 100% / 0.10` | Standard container borders |
+| `--accent-emerald` | `160 60% 45%` | Delicate mesh / VU spectrum |
+| `--accent-sky` | `200 70% 55%` | Delicate mesh washes |
+| `--accent-violet` | `260 50% 58%` | Hero atmosphere accent |
+
+**Accent rule:** One primary accent (brand/teal). Recording red and warning amber are semantic only — never decorative rainbow icons.
 
 ---
 
 ## 3. Spacing & Typography
 * **Base Spacing Unit:** `4px`
-  * Gaps and spacing strictly scale to multiples of 4:
-    * Micro elements (icon-text): `gap-1.5` (6px) or `gap-2` (8px)
-    * Medium containers (inputs): `p-3.5` or `p-4`
-    * Major panels (viewfinder, decks): `p-6` or `p-8`
-    * Layout grids: `gap-6` or `gap-8`
+  * Micro elements (icon-text): `gap-1.5` (6px) or `gap-2` (8px)
+  * Medium containers (inputs): `p-3.5` or `p-4`
+  * Major panels (viewfinder, decks): `p-6` or `p-8`
+  * Layout grids: `gap-6` or `gap-8`
 * **Typography Scale:**
-  * **Default UI & Descriptions:** Sans-serif (`Geist` / `font-sans`) with light weights (`font-light` / `font-medium`) for body copy and uppercase labels.
-  * **Telemetry & Counters:** Monospace (`Geist Mono` / `font-mono`) for numerical values, timers, RAM buffer size, status states, and hardware descriptions to guarantee aligned column spacing.
+  * **Default UI & Descriptions:** Sans-serif (`Geist` / `font-sans`) with light weights for body copy.
+  * **Telemetry & Counters:** Monospace (`Geist Mono` / `font-mono`) for numerical values, timers, RAM buffer size, status states, step numbers, and trust badges.
 
 ---
 
 ## 4. Depth & Borders
 * **Depth Strategy:** *Borders-only* layout.
-  * Avoid heavy shadows or drop shadows in a dark theme. Instead, rely on micro-elevation shifts (lightness differences between surfaces) and borders.
-  * Interactive components utilize a border transition from muted Slate to glowing Cyan/Teal to show focus states rather than changing backgrounds dramatically.
-* **Borders:** Low-opacity rgba/hsla borders to allow dark background tones to shine through container boundaries.
+  * Avoid heavy shadows except on viewfinder/product preview (subtle `shadow-black/50`).
+  * Interactive components utilize border transition from muted to glowing brand/emphasis rather than dramatic background shifts.
+* **Ambient texture:** `.canvas-texture` — dot grid + soft brand glow at top.
+* **Hero atmosphere:** `.hero-atmosphere` + `HeroAtmosphere` orbs — mesh gradients (brand, emerald, sky, violet).
+* **Surfaces:** `.bento-card` — `white/2%` fill, hairline border, hover brightens subtly.
+* **Buttons:** `.btn-primary` (white pill + brand shadow), `.btn-secondary` (ghost pill).
+* **Spectrum:** `.spectrum-wash` — viewfinder/preview color refraction.
 
 ---
 
 ## 5. Key Component Patterns
-1. **Viewfinder Screens:** Rounded aspect-ratio boxes (`rounded-2xl bg-black`) with absolute-positioned status badges in the upper corner, and monospace telemetry metrics docked at the bottom.
-2. **Tactile Decks:** Control panels resemble physical modules (`bg-[#18191e] border border-zinc-800/60 p-6 rounded-2xl`). Sub-sections wrap input groupings inside a darker, inset viewport (`bg-zinc-950/80 border border-zinc-900 rounded-xl`).
-3. **Live VU Equalizer:** Linear meter transitioning voice levels smoothly.
+
+### Layout
+1. **SiteHeader:** Sticky, backdrop-blur, logo + language switcher. Tool variant adds back navigation.
+2. **SiteFooter:** Three-column grid (brand, tools, links) on desktop.
+
+### Marketing (Landing)
+3. **HeroSection:** Split layout — copy left, ProductPreview right. Includes SignalPath and dual CTAs.
+4. **ProductPreview:** Static viewfinder mock with REC badge, telemetry bar, VU meter animation, source selector mock.
+5. **SignalPath:** Three-step flow with animated connector lines and "no server" pill.
+6. **ToolCard:** Featured tool with badges, description, and mini deck icons.
+7. **HowItWorks:** Three rack-style modules with monospace step numbers (01, 02, 03).
+8. **FeatureCard:** Unified accent system — brand, recording, warning, or neutral.
+9. **TrustStrip:** Pill badges in monospace for trust claims.
+
+### Recorder
+10. **Viewfinder Screens:** Rounded aspect-ratio boxes with status badges and monospace telemetry.
+11. **Tactile Decks:** Control panels on `surface-1` with inset sub-sections on `surface-2`.
+12. **Live VU Equalizer:** Linear meter with brand gradient.
+
+### Animations
+* `.rec-pulse` — REC indicator opacity pulse (1.5s)
+* `.vu-bar-animate` — Idle VU meter width animation (2.4s)
+* `.signal-flow` — Dashed connector stroke animation (1.2s)
+
+---
+
+## 6. Border Radius Scale
+* `--radius-sm`: 0.5rem — inputs, small controls
+* `--radius-md`: 0.75rem — buttons
+* `--radius-lg` / `--radius-xl`: 1rem–1.25rem — cards, panels
+* `rounded-2xl`: viewfinder, major sections

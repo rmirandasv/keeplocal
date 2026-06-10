@@ -1,0 +1,9 @@
+.agents/
+.interface-design/
+.next/
+out/
+build/
+node_modules/
+pnpm-lock.yaml
+package-lock.json
+next-env.d.ts

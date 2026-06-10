@@ -1,7 +1,7 @@
-import en from '@/locales/en.json';
-import es from '@/locales/es.json';
+import en from "@/locales/en.json";
+import es from "@/locales/es.json";
 
-export type Locale = 'en' | 'es';
+export type Locale = "en" | "es";
 export type Dictionary = typeof en;
 
 const dictionaries: Record<Locale, Dictionary> = {
@@ -10,9 +10,9 @@ const dictionaries: Record<Locale, Dictionary> = {
 };
 
 export const getDictionary = (lang: string | undefined): Dictionary => {
-  const safeLang = (lang === 'es' ? 'es' : 'en') as Locale;
+  const safeLang = (lang === "es" ? "es" : "en") as Locale;
   return dictionaries[safeLang];
 };
 
-export const locales: Locale[] = ['en', 'es'];
-export const defaultLocale: Locale = 'en';
+export const locales: Locale[] = ["en", "es"];
+export const defaultLocale: Locale = "en";

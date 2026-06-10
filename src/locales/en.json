@@ -10,8 +10,36 @@
   "home": {
     "heroTitle": "Privacy-First Web Tools",
     "heroSubtitle": "All operations run 100% locally in your browser. No databases, no telemetry, no tracking, no logins. Air-gapped secure by design.",
+    "privacyBadge": "100% Client-Side • No Cookies",
     "ctaButton": "Launch Record Once",
+    "githubCta": "View Source",
+    "signalPath": ["Browser", "RAM Buffer", "Local Download"],
     "featuresTitle": "Why KeepLocal?",
+    "toolsTitle": "Available Tools",
+    "howItWorksTitle": "How It Works",
+    "howItWorks": {
+      "load": {
+        "title": "Load",
+        "description": "Static pages with no backend. Once cached, the tools run entirely in your browser."
+      },
+      "process": {
+        "title": "Process",
+        "description": "All data stays in your computer's RAM. Nothing is sent to a remote server or cloud storage."
+      },
+      "save": {
+        "title": "Save",
+        "description": "Download files only when you choose. Your media never leaves your device until you decide."
+      }
+    },
+    "tools": {
+      "recordOnce": {
+        "title": "Record Once",
+        "description": "Capture audio, video, or screen share with a studio-grade interface. Chunks buffer in RAM with a 5-minute safety cap to prevent out-of-memory errors.",
+        "cta": "Open Record Once",
+        "badges": ["Audio", "Video", "Screen"]
+      }
+    },
+    "trustStrip": ["No cookies", "No analytics", "Open source", "Works offline"],
     "features": {
       "local": {
         "title": "100% Browser Local",
@@ -29,6 +57,11 @@
         "title": "Open Source",
         "description": "Fully transparent codebase. Inspect the code, verify the local-only execution yourself."
       }
+    },
+    "footer": {
+      "toolsLabel": "Tools",
+      "linksLabel": "Links",
+      "copyright": "Open source project."
     }
   },
   "recorder": {

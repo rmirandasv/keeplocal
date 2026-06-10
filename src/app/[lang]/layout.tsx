@@ -22,7 +22,11 @@ interface LayoutProps {
   params: Promise<{ lang: string }>;
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);
   return {
@@ -42,11 +46,8 @@ export default async function LocalizedLayout({ children, params }: LayoutProps)
   const { lang } = await params;
 
   return (
-    <html
-      lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-[#0f1013] text-zinc-100 selection:bg-teal-500/30 selection:text-teal-200">
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-canvas text-foreground-primary antialiased">
         {children}
       </body>
     </html>

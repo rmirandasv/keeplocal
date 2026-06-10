@@ -8,22 +8,23 @@ A suite of private, zero-tracking, client-side web utilities built with **Next.j
 
 `keeplocal` was created out of a need for clean, lightweight browser utilities that respect user privacy. All operations are run **100% locally in the browser**.
 
-* **No Backend / Serverless:** Your media, documents, and data never touch a remote server.
-* **Zero Tracking:** No tracking scripts, no database logs, no telemetry, and no analytical cookies.
-* **Offline-First:** Once loaded, the tools can run entirely offline or in air-gapped environments.
-* **No Logins:** Instant functionality. No user databases or tracking profiles.
-* **Open Source:** Fully transparent code. Inspect the code, verify the local-only execution yourself.
+- **No Backend / Serverless:** Your media, documents, and data never touch a remote server.
+- **Zero Tracking:** No tracking scripts, no database logs, no telemetry, and no analytical cookies.
+- **Offline-First:** Once loaded, the tools can run entirely offline or in air-gapped environments.
+- **No Logins:** Instant functionality. No user databases or tracking profiles.
+- **Open Source:** Fully transparent code. Inspect the code, verify the local-only execution yourself.
 
 ---
 
 ## 🎙️ Core Module: Record Once (`/record-once`)
 
 The first utility is a high-performance audio, video, and screen recorder utilizing standard browser APIs:
-* **Audio & Video Capturing:** Record from your camera, screen share, or microphone.
-* **In-Memory Buffering:** Captured chunks are stored directly in your computer's RAM, ensuring nothing is saved to a server or local hard disk until you choose to download.
-* **Tactile Studio Deck UI:** A dark, retro-modern soundboard interface featuring custom hardware controllers.
-* **Live VU Equalizer:** A real-time microphone volume level meter built with the Web Audio API.
-* **OOM protection:** Safely capped at 5 minutes to prevent browser out-of-memory errors due to in-memory buffering.
+
+- **Audio & Video Capturing:** Record from your camera, screen share, or microphone.
+- **In-Memory Buffering:** Captured chunks are stored directly in your computer's RAM, ensuring nothing is saved to a server or local hard disk until you choose to download.
+- **Tactile Studio Deck UI:** A dark, retro-modern soundboard interface featuring custom hardware controllers.
+- **Live VU Equalizer:** A real-time microphone volume level meter built with the Web Audio API.
+- **OOM protection:** Safely capped at 5 minutes to prevent browser out-of-memory errors due to in-memory buffering.
 
 ---
 
