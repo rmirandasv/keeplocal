@@ -30,11 +30,6 @@ export default function SignalPath({ steps }: SignalPathProps) {
           )}
         </span>
       ))}
-
-      <span className="ml-0.5 hidden items-center gap-1.5 rounded-full border border-recording/15 bg-recording/5 px-2.5 py-1 font-mono text-[10px] text-recording/90 sm:inline-flex">
-        <span className="h-1.5 w-1.5 rounded-full bg-recording rec-pulse shadow-[0_0_6px_hsl(var(--recording)/0.5)]" />
-        no server
-      </span>
     </div>
   );
 }
