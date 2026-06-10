@@ -32,7 +32,10 @@ export async function generateMetadata({
   return {
     title: `${dict.common.appName} | ${dict.home.heroTitle}`,
     description: dict.home.heroSubtitle,
-    metadataBase: new URL("https://keeplocal.dev"), // Fallback base URL for metadata
+    metadataBase: new URL("https://keeplocal.dev"),
+    icons: {
+      icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    },
     openGraph: {
       title: `${dict.common.appName} | ${dict.home.heroTitle}`,
       description: dict.home.heroSubtitle,

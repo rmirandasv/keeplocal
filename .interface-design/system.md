@@ -67,8 +67,9 @@ All colors are defined as CSS custom properties in `src/app/globals.css` and map
 ## 5. Key Component Patterns
 
 ### Layout
-1. **SiteHeader:** Sticky, backdrop-blur, logo + language switcher. Tool variant adds back navigation.
+1. **SiteHeader:** Sticky, backdrop-blur, LogoBadge + language switcher. Tool variant adds back navigation.
 2. **SiteFooter:** Three-column grid (brand, tools, links) on desktop.
+3. **KeeplocalLogo / LogoBadge:** Vector mark — studio module frame, signal rings, inward local loop. Used in header, footer, favicon (`src/app/icon.svg`, `public/icon.svg`).
 
 ### Marketing (Landing)
 3. **HeroSection:** Split layout — copy left, ToolsPreview right (dual tool mocks). Dual CTAs for Record Once + Screen to GIF.

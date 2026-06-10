@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Dictionary } from "@/utils/i18n";
+import LogoBadge from "@/components/brand/LogoBadge";
 
 const GITHUB_URL = "https://github.com/keeplocal/keeplocal";
 
@@ -20,9 +21,7 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>
             <div className="mb-3 flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-md border border-border-default bg-foreground-primary/[0.04]">
-                <span className="font-mono text-[10px] font-semibold text-brand">kl</span>
-              </div>
+              <LogoBadge size="sm" />
               <span className="text-sm font-semibold text-foreground-primary">{dict.appName}</span>
             </div>
             <p className="text-xs leading-relaxed text-foreground-muted">{dict.tagline}</p>
