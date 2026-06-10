@@ -2,10 +2,7 @@ import type { LucideIcon } from "lucide-react";
 
 type FeatureAccent = "brand" | "recording" | "warning" | "neutral";
 
-const accentStyles: Record<
-  FeatureAccent,
-  { glow: string; icon: string; iconBg: string }
-> = {
+const accentStyles: Record<FeatureAccent, { glow: string; icon: string; iconBg: string }> = {
   brand: {
     glow: "from-brand/8 via-transparent to-transparent",
     icon: "text-brand",
@@ -46,7 +43,9 @@ export default function FeatureCard({
   const styles = accentStyles[accent];
 
   return (
-    <div className={`group relative overflow-hidden rounded-2xl bento-card p-6 md:p-7 ${className}`}>
+    <div
+      className={`group relative overflow-hidden rounded-2xl bento-card p-6 md:p-7 ${className}`}
+    >
       {/* Corner color wash on hover */}
       <div
         className={`pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br ${styles.glow} opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100`}
@@ -61,9 +60,7 @@ export default function FeatureCard({
       <h3 className="relative mb-2 text-[15px] font-semibold tracking-[-0.01em] text-foreground-primary">
         {title}
       </h3>
-      <p className="relative text-sm leading-relaxed text-foreground-secondary">
-        {description}
-      </p>
+      <p className="relative text-sm leading-relaxed text-foreground-secondary">{description}</p>
     </div>
   );
 }
