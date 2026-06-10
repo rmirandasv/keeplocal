@@ -37,6 +37,12 @@
         "description": "Capture audio, video, or screen share with a studio-grade interface. Chunks buffer in RAM with a 5-minute safety cap to prevent out-of-memory errors.",
         "cta": "Open Record Once",
         "badges": ["Audio", "Video", "Screen"]
+      },
+      "screenToGif": {
+        "title": "Screen to GIF",
+        "description": "Capture screen recordings and export them directly to optimized, high-fidelity animated GIFs. Custom frame rate and sizing options available.",
+        "cta": "Open Screen to GIF",
+        "badges": ["Screen", "GIF Export"]
       }
     },
     "trustStrip": ["No cookies", "No analytics", "Open source", "Works offline"],
@@ -89,5 +95,15 @@
     "idleState": "Ready to Record",
     "downloadReady": "Recording completed. Your file is ready to download.",
     "errorDevices": "Failed to access media devices. Please verify permissions in your browser bar."
+  },
+  "screenToGif": {
+    "title": "Screen to GIF",
+    "subtitle": "Record your screen and convert it directly into an animated GIF. No servers, no uploads.",
+    "converting": "Converting to GIF... This might take a few seconds.",
+    "downloadGif": "Download GIF",
+    "fpsLabel": "Frames per second (FPS)",
+    "widthLabel": "GIF Width (px)",
+    "previewTitle": "GIF Preview",
+    "generatingGif": "Generating GIF..."
   }
 }

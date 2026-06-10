@@ -2,14 +2,14 @@ import Link from "next/link";
 import { ArrowRight, Mic, Monitor, Video } from "lucide-react";
 
 interface ToolCardProps {
-  lang: string;
   title: string;
   description: string;
   ctaLabel: string;
   badges: string[];
+  href: string;
 }
 
-export default function ToolCard({ lang, title, description, ctaLabel, badges }: ToolCardProps) {
+export default function ToolCard({ title, description, ctaLabel, badges, href }: ToolCardProps) {
   return (
     <div className="group relative overflow-hidden rounded-2xl bento-card">
       {/* Spectrum corner glow */}
@@ -42,7 +42,7 @@ export default function ToolCard({ lang, title, description, ctaLabel, badges }:
             {description}
           </p>
 
-          <Link href={`/${lang}/record-once`} className="btn-primary mt-7 px-5 py-2.5 text-sm">
+          <Link href={href} className="btn-primary mt-7 px-5 py-2.5 text-sm">
             {ctaLabel}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </Link>

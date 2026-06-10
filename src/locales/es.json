@@ -37,6 +37,12 @@
         "description": "Captura audio, video o pantalla con una interfaz de estudio. Los fragmentos se almacenan en RAM con un límite de 5 minutos para evitar errores de memoria.",
         "cta": "Abrir Record Once",
         "badges": ["Audio", "Video", "Pantalla"]
+      },
+      "screenToGif": {
+        "title": "Screen to GIF",
+        "description": "Captura grabaciones de pantalla y expórtalas directamente a GIFs animados optimizados de alta fidelidad. Opciones de fotogramas y tamaño personalizables.",
+        "cta": "Abrir Screen to GIF",
+        "badges": ["Pantalla", "Exportar GIF"]
       }
     },
     "trustStrip": ["Sin cookies", "Sin analíticas", "Código abierto", "Funciona offline"],
@@ -89,5 +95,15 @@
     "idleState": "Listo para Grabar",
     "downloadReady": "Grabación finalizada. Tu archivo está listo para descargar.",
     "errorDevices": "Error al acceder a los dispositivos multimedia. Por favor verifica los permisos en la barra de tu navegador."
+  },
+  "screenToGif": {
+    "title": "Screen to GIF",
+    "subtitle": "Graba tu pantalla y conviértela directamente en un GIF animado. Sin servidores ni subidas de archivos.",
+    "converting": "Convirtiendo a GIF... Esto puede tardar unos segundos.",
+    "downloadGif": "Descargar GIF",
+    "fpsLabel": "Fotogramas por segundo (FPS)",
+    "widthLabel": "Ancho del GIF (px)",
+    "previewTitle": "Vista Previa del GIF",
+    "generatingGif": "Generando GIF..."
   }
 }

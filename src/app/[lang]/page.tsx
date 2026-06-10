@@ -62,13 +62,22 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           <h2 className="mb-8 text-center text-2xl font-semibold tracking-[-0.02em] text-foreground-primary">
             {dict.home.toolsTitle}
           </h2>
-          <ToolCard
-            lang={lang}
-            title={dict.home.tools.recordOnce.title}
-            description={dict.home.tools.recordOnce.description}
-            ctaLabel={dict.home.tools.recordOnce.cta}
-            badges={dict.home.tools.recordOnce.badges}
-          />
+          <div className="flex flex-col gap-6">
+            <ToolCard
+              title={dict.home.tools.recordOnce.title}
+              description={dict.home.tools.recordOnce.description}
+              ctaLabel={dict.home.tools.recordOnce.cta}
+              badges={dict.home.tools.recordOnce.badges}
+              href={`/${lang}/record-once`}
+            />
+            <ToolCard
+              title={dict.home.tools.screenToGif.title}
+              description={dict.home.tools.screenToGif.description}
+              ctaLabel={dict.home.tools.screenToGif.cta}
+              badges={dict.home.tools.screenToGif.badges}
+              href={`/${lang}/screen-to-gif`}
+            />
+          </div>
         </section>
 
         {/* How It Works */}
