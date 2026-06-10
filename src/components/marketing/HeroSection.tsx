@@ -3,8 +3,7 @@ import { ShieldCheck, Monitor, Video } from "lucide-react";
 import ToolsPreview from "./ToolsPreview";
 import SignalPath from "./SignalPath";
 import HeroAtmosphere from "./HeroAtmosphere";
-
-const GITHUB_URL = "https://github.com/keeplocal/keeplocal";
+import { GITHUB_REPO_URL } from "@/constants/site";
 
 interface HeroSectionProps {
   lang: string;
@@ -82,7 +81,7 @@ export default function HeroSection({
                 ·
               </span>
               <a
-                href={GITHUB_URL}
+                href={GITHUB_REPO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-foreground-tertiary transition-colors hover:text-foreground-secondary"

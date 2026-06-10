@@ -1,8 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
-
-const GITHUB_URL = "https://github.com/keeplocal/keeplocal";
+import { GITHUB_REPO_URL } from "@/constants/site";
 
 interface SiteFooterProps {
   lang: string;
@@ -48,7 +47,7 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
             <ul className="space-y-2">
               <li>
                 <a
-                  href={GITHUB_URL}
+                  href={GITHUB_REPO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"

@@ -2,6 +2,8 @@
 
 A suite of private, zero-tracking, client-side web utilities built with **Next.js** and **Tailwind CSS**.
 
+**Repository:** [github.com/rmirandasv/keeplocal](https://github.com/rmirandasv/keeplocal)
+
 ---
 
 ## 👁️ Philosophy & Design
