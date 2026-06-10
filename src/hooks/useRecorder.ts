@@ -240,21 +240,43 @@ export function useRecorder() {
     }
 
     try {
-      // Determine appropriate mime type
-      let options = { mimeType: "video/webm;codecs=vp9,opus" };
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: "video/webm;codecs=vp8,opus" };
-      }
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        options = { mimeType: "video/webm" };
-      }
-      if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-        // Fallback for Safari/iOS
-        options = { mimeType: "video/mp4" };
+      // Determine appropriate mime type based on available tracks
+      const hasAudio = stream.getAudioTracks().length > 0;
+      const hasVideo = stream.getVideoTracks().length > 0;
+
+      let mimeType = "";
+      if (hasVideo && hasAudio) {
+        mimeType = "video/webm;codecs=vp9,opus";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/webm;codecs=vp8,opus";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/webm";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/mp4";
+      } else if (hasVideo) {
+        mimeType = "video/webm;codecs=vp9";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/webm;codecs=vp8";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/webm";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "video/mp4";
+      } else if (hasAudio) {
+        mimeType = "audio/webm;codecs=opus";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "audio/webm";
+        if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = "audio/mp4";
       }
 
+      const options = { mimeType };
       const recorder = new MediaRecorder(stream, options);
       mediaRecorderRef.current = recorder; // Store reference
+
+      // Listen for track ended (e.g. browser's native "Stop Sharing" banner button)
+      stream.getTracks().forEach((track) => {
+        track.onended = () => {
+          if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+            mediaRecorderRef.current.stop();
+          }
+        };
+      });
+
+      recorder.onerror = (event) => {
+        console.error("MediaRecorder error:", event);
+      };
 
       recorder.ondataavailable = (event) => {
         if (event.data && event.data.size > 0) {
