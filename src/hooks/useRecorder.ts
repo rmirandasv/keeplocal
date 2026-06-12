@@ -36,17 +36,29 @@ export function useRecorder() {
   const chunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const streamTracksRef = useRef<MediaStreamTrack[]>([]);
+  const streamRef = useRef<MediaStream | null>(null);
   const isMountedRef = useRef<boolean>(true);
 
-  // Stop all active tracks helper
+  useEffect(() => {
+    streamRef.current = stream;
+  }, [stream]);
+
+  // Stop all active tracks helper (uses refs to avoid stale closures in async callbacks)
   const stopTracks = useCallback(() => {
-    streamTracksRef.current.forEach((track) => track.stop());
+    streamTracksRef.current.forEach((track) => {
+      if (track.readyState === "live") track.stop();
+    });
     streamTracksRef.current = [];
-    if (stream) {
-      stream.getTracks().forEach((track) => track.stop());
+
+    const currentStream = streamRef.current;
+    if (currentStream) {
+      currentStream.getTracks().forEach((track) => {
+        if (track.readyState === "live") track.stop();
+      });
+      streamRef.current = null;
       setStream(null);
     }
-  }, [stream]);
+  }, []);
 
   // Enumerate active devices
   const enumerateDevices = useCallback(async () => {
@@ -349,14 +361,15 @@ export function useRecorder() {
 
   // Stop Recording
   const stopRecording = useCallback(() => {
-    if (mediaRecorderRef.current && (status === "recording" || status === "paused")) {
-      mediaRecorderRef.current.stop();
-      if (timerRef.current) {
-        clearInterval(timerRef.current);
-        timerRef.current = null;
-      }
+    const recorder = mediaRecorderRef.current;
+    if (!recorder || recorder.state === "inactive") return;
+
+    recorder.stop();
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
     }
-  }, [status]);
+  }, []);
 
   // Reset Recorder for new recording
   const resetRecorder = useCallback(() => {

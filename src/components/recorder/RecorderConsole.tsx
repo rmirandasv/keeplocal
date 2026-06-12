@@ -54,12 +54,20 @@ export default function RecorderConsole({ dict }: RecorderConsoleProps) {
   // Sync preview stream to video element
   useEffect(() => {
     const video = previewVideoRef.current;
-    if (video && stream) {
+    if (!video) return;
+
+    if (stream) {
       video.srcObject = stream;
       video.play().catch((err) => {
         console.warn("Video preview play interrupted:", err);
       });
+    } else {
+      video.srcObject = null;
     }
+
+    return () => {
+      video.srcObject = null;
+    };
   }, [stream]);
 
   // Real-time Audio Level Analyzer using Web Audio API

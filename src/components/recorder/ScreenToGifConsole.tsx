@@ -52,12 +52,20 @@ export default function ScreenToGifConsole({ dict }: ScreenToGifConsoleProps) {
   // Sync preview stream to video element
   useEffect(() => {
     const video = previewVideoRef.current;
-    if (video && stream) {
+    if (!video) return;
+
+    if (stream) {
       video.srcObject = stream;
       video.play().catch((err) => {
         console.warn("Screen preview play interrupted:", err);
       });
+    } else {
+      video.srcObject = null;
     }
+
+    return () => {
+      video.srcObject = null;
+    };
   }, [stream]);
 
   // Detect video dimensions to maintain correct aspect ratio
