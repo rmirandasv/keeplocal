@@ -30,6 +30,16 @@ The first utility is a high-performance audio, video, and screen recorder utiliz
 
 ---
 
+## 🖼️ Core Module: EXIF Metadata Stripper (`/exif-stripper`)
+
+Remove hidden metadata from images before sharing them online:
+
+- **Metadata Preview:** Reads EXIF data locally with ExifReader — GPS coordinates, camera model, timestamps, and more.
+- **Client-Side Stripping:** Re-encodes images via the Canvas API to produce a clean file with no embedded metadata.
+- **Privacy by Design:** Your photos never leave your browser. No uploads, no servers, no tracking.
+
+---
+
 ## 🌐 Localization (i18n) & SEO
 
 `keeplocal` supports English (default) and Spanish. The routing is designed with dynamic segment routing (e.g. `/en` and `/es`), which compile into static HTML files during build time. This ensures high SEO rankings and compatibility with pure static hosting (e.g., GitHub Pages).
@@ -44,9 +54,12 @@ src/
 │   ├── (root)/           # Root layout and redirection page
 │   └── [lang]/           # Localized route segments (en, es)
 │       ├── page.tsx      # Localized landing page
-│       └── record-once/  # "Record Once" capture interface
+│       ├── record-once/  # "Record Once" capture interface
+│       ├── screen-to-gif/ # Screen recording to GIF converter
+│       └── exif-stripper/ # EXIF metadata removal tool
 ├── components/           # UI Components
-│   └── recorder/         # Record-once controls and viewfinder
+│   ├── recorder/         # Record-once and screen-to-gif consoles
+│   └── image/            # EXIF stripper console
 ├── hooks/                # Custom React Hooks (useRecorder media streams)
 ├── locales/              # Localized translation dictionary JSON files
 └── utils/                # i18n helpers and converters

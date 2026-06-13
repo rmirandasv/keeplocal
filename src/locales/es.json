@@ -13,9 +13,11 @@
     "privacyBadge": "100% Local • Sin Cookies",
     "ctaRecordOnce": "Record Once",
     "ctaScreenToGif": "Screen to GIF",
+    "ctaExifStripper": "Eliminar EXIF",
     "ctaExplore": "Ver todas las herramientas",
     "githubCta": "Ver Código",
     "gifReadyLabel": "Listo para exportar",
+    "metadataRemovedLabel": "Metadatos eliminados",
     "signalPath": ["Navegador", "Buffer RAM", "Descarga Local"],
     "featuresTitle": "¿Por qué KeepLocal?",
     "toolsTitle": "Herramientas Disponibles",
@@ -46,6 +48,12 @@
         "description": "Captura grabaciones de pantalla y expórtalas directamente a GIFs animados optimizados de alta fidelidad. Opciones de fotogramas y tamaño personalizables.",
         "cta": "Abrir Screen to GIF",
         "badges": ["Pantalla", "Exportar GIF"]
+      },
+      "exifStripper": {
+        "title": "Eliminador de Metadatos EXIF",
+        "description": "Elimina metadatos ocultos de tus fotos — coordenadas GPS, modelo de cámara, fechas y más — antes de compartirlas en internet. Todo el procesamiento ocurre localmente en tu navegador.",
+        "cta": "Abrir EXIF Stripper",
+        "badges": ["EXIF", "GPS", "Privacidad"]
       }
     },
     "trustStrip": ["Sin cookies", "Sin analíticas", "Código abierto", "Funciona offline"],
@@ -112,5 +120,41 @@
     "widthLabel": "Ancho del GIF (px)",
     "previewTitle": "Vista Previa del GIF",
     "generatingGif": "Generando GIF..."
+  },
+  "exifStripper": {
+    "title": "Eliminador de Metadatos EXIF",
+    "subtitle": "Elimina GPS, información de cámara y marcas de tiempo de tus imágenes antes de compartirlas. Sin servidores ni subidas.",
+    "dropzoneTitle": "Arrastra una imagen aquí",
+    "dropzoneHint": "o haz clic para buscar — JPEG, PNG, WebP",
+    "metadataTitle": "Metadatos Detectados",
+    "noMetadata": "No se detectaron metadatos EXIF en esta imagen.",
+    "fieldsFound": "{count} campos de metadatos encontrados",
+    "labels": {
+      "gpsLatitude": "Latitud GPS",
+      "gpsLongitude": "Longitud GPS",
+      "cameraMake": "Marca de Cámara",
+      "cameraModel": "Modelo de Cámara",
+      "dateTaken": "Fecha de Captura",
+      "dateModified": "Fecha de Modificación",
+      "software": "Software",
+      "description": "Descripción",
+      "orientation": "Orientación",
+      "generic": "Otro"
+    },
+    "stripButton": "Eliminar Metadatos",
+    "stripping": "Eliminando metadatos...",
+    "strippedTitle": "Metadatos Eliminados",
+    "strippedDesc": "Tu imagen se ha re-codificado sin metadatos y está lista para descargar.",
+    "downloadClean": "Descargar Imagen Limpia",
+    "processAnother": "Procesar Otra",
+    "clearFile": "Limpiar",
+    "privacyNote": "Procesado enteramente en tu navegador. Nada se sube a internet.",
+    "fileSizeWarning": "Archivo grande detectado. El procesamiento puede usar mucha memoria.",
+    "errors": {
+      "unsupportedFormat": "Formato no soportado. Usa JPEG, PNG o WebP.",
+      "fileTooLarge": "El archivo supera el límite de 25 MB.",
+      "processingFailed": "Error al procesar la imagen. Prueba con otro archivo.",
+      "readFailed": "Error al leer los metadatos de la imagen."
+    }
   }
 }

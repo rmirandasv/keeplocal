@@ -1,11 +1,12 @@
-import Link from "next/link";
-import { FileImage, Monitor, Video } from "lucide-react";
+import { FileImage, Monitor, ShieldCheck, Video } from "lucide-react";
 
 interface ToolsPreviewProps {
   recordOnceLabel: string;
   recordingLabel: string;
   screenToGifLabel: string;
   gifReadyLabel: string;
+  exifStripperLabel: string;
+  metadataRemovedLabel: string;
 }
 
 export default function ToolsPreview({
@@ -13,6 +14,8 @@ export default function ToolsPreview({
   recordingLabel,
   screenToGifLabel,
   gifReadyLabel,
+  exifStripperLabel,
+  metadataRemovedLabel,
 }: ToolsPreviewProps) {
   return (
     <div className="relative w-full max-w-lg">
@@ -100,6 +103,40 @@ export default function ToolsPreview({
           <div className="flex items-center justify-between border-t border-border-subtle px-4 py-2 font-mono text-[9px] text-foreground-muted">
             <span>640px · 10 FPS</span>
             <span className="text-accent-emerald">150 frames max</span>
+          </div>
+        </div>
+
+        {/* EXIF Stripper mini preview */}
+        <div className="overflow-hidden rounded-2xl border border-border-default bg-surface-1/80 shadow-[0_16px_48px_-12px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+          <div className="flex items-center justify-between border-b border-border-subtle px-4 py-2.5">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-3.5 w-3.5 text-accent-emerald" aria-hidden />
+              <span className="text-[11px] font-semibold text-foreground-primary">
+                {exifStripperLabel}
+              </span>
+            </div>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border-default bg-black/40 px-2 py-0.5 font-mono text-[9px] text-accent-emerald">
+              <FileImage className="h-2.5 w-2.5" aria-hidden />
+              EXIF
+            </span>
+          </div>
+          <div className="relative aspect-[16/7] overflow-hidden bg-viewfinder p-4">
+            <div className="flex h-full flex-col justify-center gap-2">
+              <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 px-3 py-1.5 font-mono text-[9px] text-amber-300/80 line-through">
+                GPS: 40.7128° N, 74.0060° W
+              </div>
+              <div className="rounded-lg border border-sky-500/20 bg-sky-500/5 px-3 py-1.5 font-mono text-[9px] text-sky-300/80 line-through">
+                Camera: Apple iPhone 15 Pro
+              </div>
+              <div className="rounded-lg border border-violet-500/20 bg-violet-500/5 px-3 py-1.5 font-mono text-[9px] text-violet-300/80 line-through">
+                Date: 2026-03-15 14:32:01
+              </div>
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span className="rounded-full border border-border-default bg-black/30 px-3 py-1 font-mono text-[9px] text-foreground-tertiary backdrop-blur-sm">
+                {metadataRemovedLabel}
+              </span>
+            </div>
           </div>
         </div>
       </div>

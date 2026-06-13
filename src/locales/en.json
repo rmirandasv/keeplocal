@@ -13,9 +13,11 @@
     "privacyBadge": "100% Client-Side • No Cookies",
     "ctaRecordOnce": "Record Once",
     "ctaScreenToGif": "Screen to GIF",
+    "ctaExifStripper": "Strip EXIF",
     "ctaExplore": "Explore all tools",
     "githubCta": "View Source",
     "gifReadyLabel": "Ready to export",
+    "metadataRemovedLabel": "Metadata removed",
     "signalPath": ["Browser", "RAM Buffer", "Local Download"],
     "featuresTitle": "Why KeepLocal?",
     "toolsTitle": "Available Tools",
@@ -46,6 +48,12 @@
         "description": "Capture screen recordings and export them directly to optimized, high-fidelity animated GIFs. Custom frame rate and sizing options available.",
         "cta": "Open Screen to GIF",
         "badges": ["Screen", "GIF Export"]
+      },
+      "exifStripper": {
+        "title": "EXIF Metadata Stripper",
+        "description": "Remove hidden metadata from photos — GPS coordinates, camera model, timestamps, and more — before sharing online. All processing happens locally in your browser.",
+        "cta": "Open EXIF Stripper",
+        "badges": ["EXIF", "GPS", "Privacy"]
       }
     },
     "trustStrip": ["No cookies", "No analytics", "Open source", "Works offline"],
@@ -112,5 +120,41 @@
     "widthLabel": "GIF Width (px)",
     "previewTitle": "GIF Preview",
     "generatingGif": "Generating GIF..."
+  },
+  "exifStripper": {
+    "title": "EXIF Metadata Stripper",
+    "subtitle": "Remove GPS, camera info, and timestamps from images before sharing. No servers, no uploads.",
+    "dropzoneTitle": "Drop an image here",
+    "dropzoneHint": "or click to browse — JPEG, PNG, WebP",
+    "metadataTitle": "Detected Metadata",
+    "noMetadata": "No EXIF metadata detected in this image.",
+    "fieldsFound": "{count} metadata fields found",
+    "labels": {
+      "gpsLatitude": "GPS Latitude",
+      "gpsLongitude": "GPS Longitude",
+      "cameraMake": "Camera Make",
+      "cameraModel": "Camera Model",
+      "dateTaken": "Date Taken",
+      "dateModified": "Date Modified",
+      "software": "Software",
+      "description": "Description",
+      "orientation": "Orientation",
+      "generic": "Other"
+    },
+    "stripButton": "Strip Metadata",
+    "stripping": "Removing metadata...",
+    "strippedTitle": "Metadata Removed",
+    "strippedDesc": "Your image has been re-encoded without metadata and is ready to download.",
+    "downloadClean": "Download Clean Image",
+    "processAnother": "Process Another",
+    "clearFile": "Clear",
+    "privacyNote": "Processed entirely in your browser. Nothing is uploaded.",
+    "fileSizeWarning": "Large file detected. Processing may use significant memory.",
+    "errors": {
+      "unsupportedFormat": "Unsupported format. Please use JPEG, PNG, or WebP.",
+      "fileTooLarge": "File exceeds the 25 MB limit.",
+      "processingFailed": "Failed to process image. Please try another file.",
+      "readFailed": "Failed to read image metadata."
+    }
   }
 }

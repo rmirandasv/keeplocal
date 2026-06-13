@@ -6,7 +6,7 @@ import ToolCard from "@/components/marketing/ToolCard";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import FeatureCard from "@/components/marketing/FeatureCard";
 import TrustStrip from "@/components/marketing/TrustStrip";
-import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge } from "lucide-react";
+import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge, MapPin } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -49,6 +49,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           privacyBadge={dict.home.privacyBadge}
           ctaRecordOnce={dict.home.ctaRecordOnce}
           ctaScreenToGif={dict.home.ctaScreenToGif}
+          ctaExifStripper={dict.home.ctaExifStripper}
           ctaExplore={dict.home.ctaExplore}
           githubCta={dict.home.githubCta}
           signalPath={dict.home.signalPath as [string, string, string]}
@@ -56,6 +57,8 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           recordingLabel={dict.recorder.recordingState}
           screenToGifLabel={dict.home.tools.screenToGif.title}
           gifReadyLabel={dict.home.gifReadyLabel}
+          exifStripperLabel={dict.home.tools.exifStripper.title}
+          metadataRemovedLabel={dict.home.metadataRemovedLabel}
         />
 
         {/* Trust strip */}
@@ -93,6 +96,19 @@ export default async function LocalizedHomePage({ params }: PageProps) {
                 { icon: Monitor, label: "Screen", color: "text-accent-sky" },
                 { icon: FileImage, label: "GIF", color: "text-accent-emerald" },
                 { icon: Gauge, label: "FPS", color: "text-brand" },
+              ]}
+            />
+            <ToolCard
+              title={dict.home.tools.exifStripper.title}
+              description={dict.home.tools.exifStripper.description}
+              ctaLabel={dict.home.tools.exifStripper.cta}
+              badges={dict.home.tools.exifStripper.badges}
+              href={`/${lang}/exif-stripper`}
+              glow="brand"
+              icons={[
+                { icon: ShieldCheck, label: "Privacy", color: "text-accent-emerald" },
+                { icon: MapPin, label: "GPS", color: "text-amber-400" },
+                { icon: FileImage, label: "EXIF", color: "text-brand" },
               ]}
             />
           </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck, Monitor, Video } from "lucide-react";
+import { ShieldCheck, Monitor, Video, FileImage } from "lucide-react";
 import ToolsPreview from "./ToolsPreview";
 import SignalPath from "./SignalPath";
 import HeroAtmosphere from "./HeroAtmosphere";
@@ -12,6 +12,7 @@ interface HeroSectionProps {
   privacyBadge: string;
   ctaRecordOnce: string;
   ctaScreenToGif: string;
+  ctaExifStripper: string;
   ctaExplore: string;
   githubCta: string;
   signalPath: [string, string, string];
@@ -19,6 +20,8 @@ interface HeroSectionProps {
   recordingLabel: string;
   screenToGifLabel: string;
   gifReadyLabel: string;
+  exifStripperLabel: string;
+  metadataRemovedLabel: string;
 }
 
 export default function HeroSection({
@@ -28,6 +31,7 @@ export default function HeroSection({
   privacyBadge,
   ctaRecordOnce,
   ctaScreenToGif,
+  ctaExifStripper,
   ctaExplore,
   githubCta,
   signalPath,
@@ -35,6 +39,8 @@ export default function HeroSection({
   recordingLabel,
   screenToGifLabel,
   gifReadyLabel,
+  exifStripperLabel,
+  metadataRemovedLabel,
 }: HeroSectionProps) {
   return (
     <section className="hero-atmosphere relative w-full overflow-hidden pb-4 pt-2">
@@ -57,7 +63,7 @@ export default function HeroSection({
           </p>
 
           <div className="mt-9 flex w-full flex-col gap-3">
-            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="flex flex-col flex-wrap gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link href={`/${lang}/record-once`} className="btn-primary group">
                 <Video
                   className="h-[18px] w-[18px] transition-transform group-hover:scale-105"
@@ -71,6 +77,13 @@ export default function HeroSection({
                   aria-hidden
                 />
                 <span>{ctaScreenToGif}</span>
+              </Link>
+              <Link href={`/${lang}/exif-stripper`} className="btn-secondary group">
+                <FileImage
+                  className="h-[18px] w-[18px] text-accent-emerald transition-transform group-hover:scale-105"
+                  aria-hidden
+                />
+                <span>{ctaExifStripper}</span>
               </Link>
             </div>
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
@@ -103,6 +116,8 @@ export default function HeroSection({
             recordingLabel={recordingLabel}
             screenToGifLabel={screenToGifLabel}
             gifReadyLabel={gifReadyLabel}
+            exifStripperLabel={exifStripperLabel}
+            metadataRemovedLabel={metadataRemovedLabel}
           />
         </div>
       </div>
