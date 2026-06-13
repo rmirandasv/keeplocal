@@ -40,9 +40,9 @@ export default function SiteHeader({
             <span>{backLabel}</span>
           </Link>
         ) : (
-          <Link href={`/${lang}`} className="flex items-center gap-2">
-            <LogoBadge size="md" />
-            <span className="text-[15px] font-semibold tracking-[-0.01em] text-foreground-primary">
+          <Link href={`/${lang}`} className="group flex items-center gap-2.5">
+            <LogoBadge size="lg" className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]" />
+            <span className="text-base font-semibold tracking-[-0.02em] text-foreground-primary">
               {dict.appName}
             </span>
           </Link>
@@ -50,9 +50,9 @@ export default function SiteHeader({
 
         <div className="flex items-center gap-4">
           {variant === "tool" && (
-            <Link href={`/${lang}`} className="hidden items-center gap-2 sm:flex">
-              <LogoBadge size="sm" />
-              <span className="text-sm font-semibold tracking-[-0.01em] text-foreground-primary">
+            <Link href={`/${lang}`} className="group hidden items-center gap-2.5 sm:flex">
+              <LogoBadge size="md" className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]" />
+              <span className="text-[15px] font-semibold tracking-[-0.02em] text-foreground-primary">
                 {dict.appName}
               </span>
             </Link>

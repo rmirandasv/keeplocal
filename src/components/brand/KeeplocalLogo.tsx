@@ -6,6 +6,7 @@ interface KeeplocalLogoProps {
 /**
  * Keeplocal mark — studio module frame, local signal rings,
  * and an inward loop suggesting data never leaves the device.
+ * Stroke weights are tuned to stay legible at small display sizes.
  */
 export default function KeeplocalLogo({ size = 28, className }: KeeplocalLogoProps) {
   return (
@@ -24,22 +25,24 @@ export default function KeeplocalLogo({ size = 28, className }: KeeplocalLogoPro
         width="27"
         height="27"
         rx="6.5"
-        className="stroke-foreground-primary/20"
-        strokeWidth="1"
+        className="stroke-foreground-primary/35"
+        strokeWidth="1.25"
       />
-      <circle cx="16" cy="15" r="9.5" className="stroke-brand/25" strokeWidth="0.75" />
-      <circle cx="16" cy="15" r="6" className="stroke-brand/50" strokeWidth="1" />
-      <circle cx="16" cy="15" r="2.25" className="fill-brand" />
+      <circle cx="16" cy="15" r="9.5" className="stroke-brand/40" strokeWidth="1.1" />
+      <circle cx="16" cy="15" r="6" className="stroke-brand/70" strokeWidth="1.35" />
+      <circle cx="16" cy="15" r="2.5" className="fill-brand" />
       <path
         d="M21.5 19.5C20.5 22 18.5 23.5 16 23.5C12 23.5 9.5 21 9.5 17"
-        className="stroke-brand/70"
-        strokeWidth="1.25"
+        className="stroke-brand"
+        strokeOpacity="0.85"
+        strokeWidth="1.5"
         strokeLinecap="round"
       />
       <path
         d="M9.5 17V19.5H7.25"
-        className="stroke-brand/70"
-        strokeWidth="1.25"
+        className="stroke-brand"
+        strokeOpacity="0.85"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

@@ -21,9 +21,9 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-3">
           <div>
-            <div className="mb-3 flex items-center gap-2">
-              <LogoBadge size="sm" />
-              <span className="text-sm font-semibold text-foreground-primary">{dict.appName}</span>
+            <div className="mb-3 flex items-center gap-2.5">
+              <LogoBadge size="md" />
+              <span className="text-[15px] font-semibold text-foreground-primary">{dict.appName}</span>
             </div>
             <p className="text-xs leading-relaxed text-foreground-muted">{dict.tagline}</p>
           </div>
