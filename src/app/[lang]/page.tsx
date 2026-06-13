@@ -6,6 +6,7 @@ import ToolCard from "@/components/marketing/ToolCard";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import FeatureCard from "@/components/marketing/FeatureCard";
 import TrustStrip from "@/components/marketing/TrustStrip";
+import FeedbackSection from "@/components/marketing/FeedbackSection";
 import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge, MapPin, ImageIcon } from "lucide-react";
 
 interface PageProps {
@@ -170,6 +171,11 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               className="md:col-span-2"
             />
           </div>
+        </section>
+
+        {/* Roadmap & Feedback */}
+        <section className="mt-16 w-full md:mt-24">
+          <FeedbackSection lang={lang} dict={dict.feedback} />
         </section>
       </main>
 

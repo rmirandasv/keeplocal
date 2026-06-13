@@ -5,7 +5,8 @@
     "backToHome": "Volver al Inicio",
     "language": "Idioma",
     "english": "English",
-    "spanish": "Español"
+    "spanish": "Español",
+    "starCta": "¿Te sirvió esta herramienta? Apóyanos con una ⭐ en GitHub y conectemos en LinkedIn!"
   },
   "home": {
     "heroTitle": "Herramientas Web con Privacidad Absoluta",
@@ -84,7 +85,9 @@
     "footer": {
       "toolsLabel": "Herramientas",
       "linksLabel": "Enlaces",
-      "copyright": "Proyecto de código abierto."
+      "copyright": "Proyecto de código abierto.",
+      "createdBy": "Creado por Ronald Miranda",
+      "aboutAuthor": "Ingeniero de software enfocado en herramientas web rápidas, locales y que respetan la privacidad. ¡Conectemos!"
     }
   },
   "recorder": {
@@ -206,6 +209,44 @@
       "unsupportedFormat": "Formato no soportado. Usa JPEG, PNG, WebP o BMP.",
       "fileTooLarge": "El archivo supera el límite de 25 MB.",
       "processingFailed": "Error al optimizar la imagen. Prueba con otro archivo."
+    }
+  },
+  "feedback": {
+    "title": "Diseña el Futuro de keeplocal",
+    "subtitle": "Sin tracking, sin cuentas. Solo tu opinión directa. Vota por la siguiente herramienta o envíanos tus sugerencias.",
+    "voteTab": "Votar Herramientas",
+    "suggestTab": "Enviar Feedback",
+    "votedLabel": "Votado",
+    "voteButton": "Votar",
+    "tools": {
+      "pdf": {
+        "title": "Herramientas de PDF",
+        "desc": "Fusiona, divide, rota o extrae texto e imágenes de archivos PDF."
+      },
+      "media": {
+        "title": "Cortador de Audio/Video",
+        "desc": "Corta archivos de audio/video localmente usando Web Audio y Web Assembly."
+      },
+      "ocr": {
+        "title": "Extractor de Texto OCR",
+        "desc": "Extrae texto de imágenes localmente usando Tesseract.js."
+      },
+      "json": {
+        "title": "Formateador JSON",
+        "desc": "Formatea, valida y consulta grandes conjuntos de datos JSON localmente."
+      }
+    },
+    "form": {
+      "label": "Tu mensaje",
+      "placeholder": "¿Qué herramienta te gustaría ver después? O reporta un fallo...",
+      "typeLabel": "Tipo de Feedback",
+      "typeBug": "Reporte de Fallo",
+      "typeFeature": "Sugerencia de Herramienta",
+      "typeGeneral": "Feedback General",
+      "submit": "Enviar Feedback",
+      "sending": "Enviando...",
+      "success": "¡Muchas gracias! Recibimos tu feedback de forma anónima.",
+      "error": "No se pudo enviar el feedback. Por favor intenta de nuevo."
     }
   }
 }

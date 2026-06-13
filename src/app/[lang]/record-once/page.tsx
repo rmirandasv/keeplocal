@@ -45,7 +45,7 @@ export default async function RecordOncePage({ params }: PageProps) {
           </p>
         </div>
 
-        <RecorderConsole lang={lang} dict={dict.recorder} />
+        <RecorderConsole lang={lang} dict={dict.recorder} commonDict={dict.common} />
       </main>
 
       <SiteFooter

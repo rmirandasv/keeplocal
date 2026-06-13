@@ -5,7 +5,8 @@
     "backToHome": "Back to Home",
     "language": "Language",
     "english": "English",
-    "spanish": "Español"
+    "spanish": "Español",
+    "starCta": "Loved this tool? Support us with a ⭐ on GitHub and connect on LinkedIn!"
   },
   "home": {
     "heroTitle": "Privacy-First Web Tools",
@@ -84,7 +85,9 @@
     "footer": {
       "toolsLabel": "Tools",
       "linksLabel": "Links",
-      "copyright": "Open source project."
+      "copyright": "Open source project.",
+      "createdBy": "Created by Ronald Miranda",
+      "aboutAuthor": "Software engineer focused on fast, local, and privacy-first web tools. Let's connect!"
     }
   },
   "recorder": {
@@ -206,6 +209,44 @@
       "unsupportedFormat": "Unsupported format. Please use JPEG, PNG, WebP, or BMP.",
       "fileTooLarge": "File exceeds the 25 MB limit.",
       "processingFailed": "Failed to optimize image. Please try another file."
+    }
+  },
+  "feedback": {
+    "title": "Shape the Future of keeplocal",
+    "subtitle": "No tracking, no accounts. Just your direct input. Vote for the next tool or send us your suggestions.",
+    "voteTab": "Vote for Tools",
+    "suggestTab": "Send Feedback",
+    "votedLabel": "Voted",
+    "voteButton": "Vote",
+    "tools": {
+      "pdf": {
+        "title": "PDF Toolkit",
+        "desc": "Merge, split, rotate, or extract text and images from PDF files."
+      },
+      "media": {
+        "title": "Audio/Video Trimmer",
+        "desc": "Cut and crop audio/video files locally using Web Audio and Web Assembly."
+      },
+      "ocr": {
+        "title": "OCR Text Extractor",
+        "desc": "Extract text from images locally using Tesseract.js."
+      },
+      "json": {
+        "title": "JSON Formatter",
+        "desc": "Format, validate, and query large JSON datasets locally."
+      }
+    },
+    "form": {
+      "label": "Your message",
+      "placeholder": "What tool would you like to see next? Or report a bug...",
+      "typeLabel": "Feedback Type",
+      "typeBug": "Bug Report",
+      "typeFeature": "Feature Request",
+      "typeGeneral": "General Feedback",
+      "submit": "Send Feedback",
+      "sending": "Sending...",
+      "success": "Thank you! Your feedback has been received anonymously.",
+      "error": "Failed to send feedback. Please try again."
     }
   }
 }

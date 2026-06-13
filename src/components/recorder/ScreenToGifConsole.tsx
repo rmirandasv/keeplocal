@@ -13,6 +13,7 @@ import {
   Loader2,
 } from "lucide-react";
 import type { Dictionary } from "@/utils/i18n";
+import GitHubStarCta from "@/components/layout/GitHubStarCta";
 
 interface ScreenToGifConsoleProps {
   lang: string;
@@ -385,6 +386,8 @@ export default function ScreenToGifConsole({ dict }: ScreenToGifConsoleProps) {
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>{dict.recorder.recordNew}</span>
               </button>
+
+              <GitHubStarCta text={dict.common.starCta} className="mt-2" />
             </div>
           </div>
         )}

@@ -20,6 +20,7 @@ import {
   MAX_IMAGE_FILE_SIZE,
   stripExifFromImage,
 } from "@/utils/stripExif";
+import GitHubStarCta from "@/components/layout/GitHubStarCta";
 
 type ConsoleStatus = "idle" | "loaded" | "stripping" | "success";
 
@@ -357,6 +358,8 @@ export default function ExifStripperConsole({ dict }: ExifStripperConsoleProps) 
                 <RotateCcw className="h-3.5 w-3.5" />
                 <span>{t.processAnother}</span>
               </button>
+
+              <GitHubStarCta text={dict.common.starCta} className="mt-2" />
             </div>
           </div>
         )}

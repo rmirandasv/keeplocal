@@ -17,13 +17,15 @@ import {
   CheckCircle,
 } from "lucide-react";
 import type { Dictionary } from "@/utils/i18n";
+import GitHubStarCta from "@/components/layout/GitHubStarCta";
 
 interface RecorderConsoleProps {
   lang: string;
   dict: Dictionary["recorder"];
+  commonDict: Dictionary["common"];
 }
 
-export default function RecorderConsole({ dict }: RecorderConsoleProps) {
+export default function RecorderConsole({ dict, commonDict }: RecorderConsoleProps) {
   const {
     status,
     videoSource,
@@ -514,6 +516,8 @@ export default function RecorderConsole({ dict }: RecorderConsoleProps) {
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>{dict.recordNew}</span>
               </button>
+
+              <GitHubStarCta text={commonDict.starCta} className="mt-2" />
             </div>
           </div>
         )}

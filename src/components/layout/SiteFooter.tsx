@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
-import { GITHUB_REPO_URL } from "@/constants/site";
+import { GITHUB_REPO_URL, PORTFOLIO_URL, LINKEDIN_URL } from "@/constants/site";
 
 interface SiteFooterProps {
   lang: string;
@@ -54,19 +54,43 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
                   rel="noopener noreferrer"
                   className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
                 >
-                  GitHub
+                  GitHub Repo
+                </a>
+              </li>
+              <li>
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
+                >
+                  ronaldmiranda.dev
+                </a>
+              </li>
+              <li>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border-subtle pt-6">
+        <div className="mt-10 border-t border-border-subtle pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <p className="text-[11px] text-foreground-muted">
             © {new Date().getFullYear()} {dict.appName}. {dict.footer.copyright}
+          </p>
+          <p className="text-[11px] text-foreground-muted max-w-md md:text-right">
+            {dict.footer.createdBy} — <span className="italic">{dict.footer.aboutAuthor}</span>
           </p>
         </div>
       </div>
     </footer>
   );
 }
+
