@@ -40,6 +40,16 @@ Remove hidden metadata from images before sharing them online:
 
 ---
 
+## 🗜️ Core Module: Image Optimizer (`/image-optimizer`)
+
+Resize, compress, and convert images to modern formats before publishing:
+
+- **Format Conversion:** Export to JPEG, PNG, WebP, or AVIF (with automatic WebP fallback when AVIF encoding is unavailable).
+- **Local Compression:** Uses `browser-image-compression` with Web Workers — processing runs on your CPU/GPU, not a remote server.
+- **Before/After Stats:** Compare file size and dimensions instantly after optimization.
+
+---
+
 ## 🌐 Localization (i18n) & SEO
 
 `keeplocal` supports English (default) and Spanish. The routing is designed with dynamic segment routing (e.g. `/en` and `/es`), which compile into static HTML files during build time. This ensures high SEO rankings and compatibility with pure static hosting (e.g., GitHub Pages).
@@ -56,10 +66,11 @@ src/
 │       ├── page.tsx      # Localized landing page
 │       ├── record-once/  # "Record Once" capture interface
 │       ├── screen-to-gif/ # Screen recording to GIF converter
-│       └── exif-stripper/ # EXIF metadata removal tool
+│       ├── exif-stripper/ # EXIF metadata removal tool
+│       └── image-optimizer/ # Image resize, compress, and convert
 ├── components/           # UI Components
 │   ├── recorder/         # Record-once and screen-to-gif consoles
-│   └── image/            # EXIF stripper console
+│   └── image/            # EXIF stripper and image optimizer consoles
 ├── hooks/                # Custom React Hooks (useRecorder media streams)
 ├── locales/              # Localized translation dictionary JSON files
 └── utils/                # i18n helpers and converters

@@ -6,7 +6,7 @@ import ToolCard from "@/components/marketing/ToolCard";
 import HowItWorks from "@/components/marketing/HowItWorks";
 import FeatureCard from "@/components/marketing/FeatureCard";
 import TrustStrip from "@/components/marketing/TrustStrip";
-import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge, MapPin } from "lucide-react";
+import { ShieldCheck, Globe, Code, Zap, Video, Mic, Monitor, FileImage, Gauge, MapPin, ImageIcon } from "lucide-react";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -109,6 +109,19 @@ export default async function LocalizedHomePage({ params }: PageProps) {
                 { icon: ShieldCheck, label: "Privacy", color: "text-accent-emerald" },
                 { icon: MapPin, label: "GPS", color: "text-amber-400" },
                 { icon: FileImage, label: "EXIF", color: "text-brand" },
+              ]}
+            />
+            <ToolCard
+              title={dict.home.tools.imageOptimizer.title}
+              description={dict.home.tools.imageOptimizer.description}
+              ctaLabel={dict.home.tools.imageOptimizer.cta}
+              badges={dict.home.tools.imageOptimizer.badges}
+              href={`/${lang}/image-optimizer`}
+              glow="sky"
+              icons={[
+                { icon: Zap, label: "Compress", color: "text-brand" },
+                { icon: ImageIcon, label: "WebP", color: "text-accent-sky" },
+                { icon: FileImage, label: "AVIF", color: "text-accent-emerald" },
               ]}
             />
           </div>

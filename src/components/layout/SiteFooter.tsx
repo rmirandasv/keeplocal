@@ -13,6 +13,7 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
     { name: dict.tools.recordOnce.title, href: `/${lang}/record-once` },
     { name: dict.tools.screenToGif.title, href: `/${lang}/screen-to-gif` },
     { name: dict.tools.exifStripper.title, href: `/${lang}/exif-stripper` },
+    { name: dict.tools.imageOptimizer.title, href: `/${lang}/image-optimizer` },
   ];
 
   return (

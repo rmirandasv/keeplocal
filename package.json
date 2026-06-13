@@ -16,6 +16,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "browser-image-compression": "^2.0.2",
     "exifreader": "^4.41.0",
     "gifshot": "^0.4.5",
     "lucide-react": "^1.17.0",

@@ -54,6 +54,12 @@
         "description": "Elimina metadatos ocultos de tus fotos — coordenadas GPS, modelo de cámara, fechas y más — antes de compartirlas en internet. Todo el procesamiento ocurre localmente en tu navegador.",
         "cta": "Abrir EXIF Stripper",
         "badges": ["EXIF", "GPS", "Privacidad"]
+      },
+      "imageOptimizer": {
+        "title": "Optimizador de Imágenes",
+        "description": "Redimensiona, comprime y convierte imágenes a formatos modernos como WebP o AVIF. Compara el peso antes y después al instante — todo en tu dispositivo.",
+        "cta": "Abrir Optimizador",
+        "badges": ["WebP", "AVIF", "Comprimir"]
       }
     },
     "trustStrip": ["Sin cookies", "Sin analíticas", "Código abierto", "Funciona offline"],
@@ -155,6 +161,51 @@
       "fileTooLarge": "El archivo supera el límite de 25 MB.",
       "processingFailed": "Error al procesar la imagen. Prueba con otro archivo.",
       "readFailed": "Error al leer los metadatos de la imagen."
+    }
+  },
+  "imageOptimizer": {
+    "title": "Optimizador de Imágenes",
+    "subtitle": "Redimensiona, comprime y convierte imágenes a WebP o AVIF antes de compartirlas. Sin servidores ni subidas.",
+    "dropzoneTitle": "Arrastra una imagen aquí",
+    "dropzoneHint": "o haz clic para buscar — JPEG, PNG, WebP, BMP",
+    "configDeckTitle": "Configuración de Optimización",
+    "formatLabel": "Formato de Salida",
+    "formats": {
+      "jpeg": "JPEG",
+      "png": "PNG",
+      "webp": "WebP",
+      "avif": "AVIF"
+    },
+    "maxWidthLabel": "Ancho Máximo",
+    "maxWidthOptions": {
+      "original": "Tamaño original",
+      "w800": "800 px",
+      "w1280": "1280 px",
+      "w1920": "1920 px"
+    },
+    "qualityLabel": "Calidad",
+    "pngQualityNote": "PNG usa compresión sin pérdida. El control de calidad aplica solo a JPEG, WebP y AVIF.",
+    "preserveExifLabel": "Conservar metadatos EXIF",
+    "optimizeButton": "Optimizar Imagen",
+    "compressing": "Optimizando imagen...",
+    "optimizedTitle": "Imagen Optimizada",
+    "optimizedDesc": "Tu imagen se ha comprimido en memoria y está lista para descargar.",
+    "downloadOptimized": "Descargar Imagen Optimizada",
+    "processAnother": "Procesar Otra",
+    "clearFile": "Limpiar",
+    "previewOriginal": "Original",
+    "previewOptimized": "Optimizada",
+    "statsSavings": "{original} → {compressed} (−{percent}%)",
+    "outputFormatLabel": "Formato",
+    "privacyNote": "Procesado enteramente en tu navegador con CPU/GPU local. Nada se sube a internet.",
+    "fileSizeWarning": "Archivo grande detectado. El procesamiento puede usar mucha memoria.",
+    "avifUnsupported": "Tu navegador no puede codificar AVIF. La salida usará WebP como alternativa.",
+    "avifChecking": "Comprobando soporte AVIF...",
+    "avifFallbackNotice": "AVIF no es compatible en este navegador. Se guardó como WebP.",
+    "errors": {
+      "unsupportedFormat": "Formato no soportado. Usa JPEG, PNG, WebP o BMP.",
+      "fileTooLarge": "El archivo supera el límite de 25 MB.",
+      "processingFailed": "Error al optimizar la imagen. Prueba con otro archivo."
     }
   }
 }
