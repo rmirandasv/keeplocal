@@ -31,7 +31,7 @@ export default async function ScreenToGifPage({ params }: PageProps) {
         lang={lang}
         dict={dict.common}
         variant="tool"
-        backHref={`/${lang}`}
+        backHref={lang === "en" ? "/" : "/es"}
         backLabel={dict.common.backToHome}
       />
 

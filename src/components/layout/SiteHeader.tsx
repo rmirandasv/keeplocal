@@ -40,8 +40,11 @@ export default function SiteHeader({
             <span>{backLabel}</span>
           </Link>
         ) : (
-          <Link href={`/${lang}`} className="group flex items-center gap-2.5">
-            <LogoBadge size="lg" className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]" />
+          <Link href={lang === "en" ? "/" : "/es"} className="group flex items-center gap-2.5">
+            <LogoBadge
+              size="lg"
+              className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]"
+            />
             <span className="text-base font-semibold tracking-[-0.02em] text-foreground-primary">
               {dict.appName}
             </span>
@@ -50,8 +53,14 @@ export default function SiteHeader({
 
         <div className="flex items-center gap-4">
           {variant === "tool" && (
-            <Link href={`/${lang}`} className="group hidden items-center gap-2.5 sm:flex">
-              <LogoBadge size="md" className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]" />
+            <Link
+              href={lang === "en" ? "/" : "/es"}
+              className="group hidden items-center gap-2.5 sm:flex"
+            >
+              <LogoBadge
+                size="md"
+                className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]"
+              />
               <span className="text-[15px] font-semibold tracking-[-0.02em] text-foreground-primary">
                 {dict.appName}
               </span>
@@ -60,7 +69,7 @@ export default function SiteHeader({
 
           <div className="flex items-center gap-0.5 rounded-full border border-border-default bg-foreground-primary/[0.03] p-0.5 text-xs text-foreground-muted">
             <Link
-              href="/en"
+              href="/"
               className={`rounded-full px-2.5 py-1 transition-colors ${
                 !isEs
                   ? "bg-foreground-primary/[0.08] text-foreground-primary"

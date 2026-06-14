@@ -9,11 +9,12 @@ interface SiteFooterProps {
 }
 
 export default function SiteFooter({ lang, dict }: SiteFooterProps) {
+  const prefix = lang === "en" ? "" : `/${lang}`;
   const toolLinks = [
-    { name: dict.tools.recordOnce.title, href: `/${lang}/record-once` },
-    { name: dict.tools.screenToGif.title, href: `/${lang}/screen-to-gif` },
-    { name: dict.tools.exifStripper.title, href: `/${lang}/exif-stripper` },
-    { name: dict.tools.imageOptimizer.title, href: `/${lang}/image-optimizer` },
+    { name: dict.tools.recordOnce.title, href: `${prefix}/record-once` },
+    { name: dict.tools.screenToGif.title, href: `${prefix}/screen-to-gif` },
+    { name: dict.tools.exifStripper.title, href: `${prefix}/exif-stripper` },
+    { name: dict.tools.imageOptimizer.title, href: `${prefix}/image-optimizer` },
   ];
 
   return (
@@ -23,7 +24,9 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
           <div>
             <div className="mb-3 flex items-center gap-2.5">
               <LogoBadge size="md" />
-              <span className="text-[15px] font-semibold text-foreground-primary">{dict.appName}</span>
+              <span className="text-[15px] font-semibold text-foreground-primary">
+                {dict.appName}
+              </span>
             </div>
             <p className="text-xs leading-relaxed text-foreground-muted">{dict.tagline}</p>
           </div>
@@ -93,4 +96,3 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
     </footer>
   );
 }
-

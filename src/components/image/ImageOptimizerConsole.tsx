@@ -356,10 +356,7 @@ export default function ImageOptimizerConsole({ dict }: ImageOptimizerConsolePro
                 className="w-full rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-xs text-zinc-300 focus:border-teal-500/50 focus:outline-none disabled:opacity-50"
               >
                 {MAX_WIDTH_OPTIONS.map((option) => (
-                  <option
-                    key={option.labelKey}
-                    value={option.value ?? "original"}
-                  >
+                  <option key={option.labelKey} value={option.value ?? "original"}>
                     {t.maxWidthOptions[option.labelKey]}
                   </option>
                 ))}
@@ -384,9 +381,7 @@ export default function ImageOptimizerConsole({ dict }: ImageOptimizerConsolePro
                 onChange={(e) => setQuality(Number(e.target.value))}
                 className="w-full accent-teal-500 disabled:opacity-50"
               />
-              {format === "png" && (
-                <p className="text-[11px] text-zinc-500">{t.pngQualityNote}</p>
-              )}
+              {format === "png" && <p className="text-[11px] text-zinc-500">{t.pngQualityNote}</p>}
             </div>
 
             <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-zinc-800/60 bg-zinc-950/40 px-3 py-2.5">

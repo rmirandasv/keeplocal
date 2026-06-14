@@ -42,6 +42,7 @@ export default function HeroSection({
   exifStripperLabel,
   metadataRemovedLabel,
 }: HeroSectionProps) {
+  const prefix = lang === "en" ? "" : `/${lang}`;
   return (
     <section className="hero-atmosphere relative w-full overflow-hidden pb-4 pt-2">
       <HeroAtmosphere />
@@ -64,21 +65,21 @@ export default function HeroSection({
 
           <div className="mt-9 flex w-full flex-col gap-3">
             <div className="flex flex-col flex-wrap gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Link href={`/${lang}/record-once`} className="btn-primary group">
+              <Link href={`${prefix}/record-once`} className="btn-primary group">
                 <Video
                   className="h-[18px] w-[18px] transition-transform group-hover:scale-105"
                   aria-hidden
                 />
                 <span>{ctaRecordOnce}</span>
               </Link>
-              <Link href={`/${lang}/screen-to-gif`} className="btn-secondary group">
+              <Link href={`${prefix}/screen-to-gif`} className="btn-secondary group">
                 <Monitor
                   className="h-[18px] w-[18px] text-accent-sky transition-transform group-hover:scale-105"
                   aria-hidden
                 />
                 <span>{ctaScreenToGif}</span>
               </Link>
-              <Link href={`/${lang}/exif-stripper`} className="btn-secondary group">
+              <Link href={`${prefix}/exif-stripper`} className="btn-secondary group">
                 <FileImage
                   className="h-[18px] w-[18px] text-accent-emerald transition-transform group-hover:scale-105"
                   aria-hidden
@@ -87,7 +88,10 @@ export default function HeroSection({
               </Link>
             </div>
             <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <a href="#tools" className="text-sm text-foreground-tertiary transition-colors hover:text-foreground-secondary">
+              <a
+                href="#tools"
+                className="text-sm text-foreground-tertiary transition-colors hover:text-foreground-secondary"
+              >
                 {ctaExplore}
               </a>
               <span className="hidden text-foreground-muted/40 sm:inline" aria-hidden>

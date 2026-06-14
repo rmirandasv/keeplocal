@@ -29,11 +29,11 @@ interface ProposedTool {
 
 export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
   const [activeTab, setActiveTab] = useState<TabType>("vote");
-  
+
   // Voting states
   const [votedTools, setVotedTools] = useState<string[]>([]);
   const [votingProgress, setVotingProgress] = useState<Record<string, boolean>>({});
-  
+
   // Suggestion states
   const [message, setMessage] = useState("");
   const [feedbackType, setFeedbackType] = useState<FeedbackType>("feature");
@@ -143,11 +143,11 @@ export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
   return (
     <section className="relative overflow-hidden rounded-2xl border border-border-subtle bg-surface-1 p-6 md:p-8">
       {/* Mesh background glow */}
-      <div 
+      <div
         className="pointer-events-none absolute -right-32 -top-32 h-64 w-64 rounded-full bg-brand/5 blur-[80px]"
         aria-hidden
       />
-      
+
       <div className="mb-6 flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
         <div>
           <span className="font-mono text-xs tracking-wider text-brand uppercase mb-1.5 block">
@@ -156,9 +156,7 @@ export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
           <h2 className="text-xl font-semibold tracking-[-0.01em] text-foreground-primary">
             {dict.title}
           </h2>
-          <p className="mt-1 text-xs text-foreground-secondary max-w-2xl">
-            {dict.subtitle}
-          </p>
+          <p className="mt-1 text-xs text-foreground-secondary max-w-2xl">{dict.subtitle}</p>
         </div>
 
         {/* Tab Controls (Studio Deck Rack Style) */}
@@ -199,8 +197,8 @@ export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
                 <div
                   key={tool.id}
                   className={`flex flex-col justify-between rounded-xl border p-4 transition-all bg-foreground-primary/[0.01] ${
-                    isVoted 
-                      ? "border-brand/40 bg-brand/[0.02]" 
+                    isVoted
+                      ? "border-brand/40 bg-brand/[0.02]"
                       : "border-border-subtle hover:border-border-default hover:bg-foreground-primary/[0.02]"
                   }`}
                 >
@@ -217,7 +215,7 @@ export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
                       {tool.desc}
                     </p>
                   </div>
-                  
+
                   <div className="mt-4 flex justify-end">
                     <button
                       onClick={() => handleVote(tool.id)}
@@ -275,13 +273,9 @@ export default function FeedbackSection({ lang, dict }: FeedbackSectionProps) {
 
             <div className="flex items-center justify-between gap-4">
               {submitSuccess ? (
-                <span className="font-mono text-xs text-brand">
-                  ✓ {dict.form.success}
-                </span>
+                <span className="font-mono text-xs text-brand">✓ {dict.form.success}</span>
               ) : submitError ? (
-                <span className="font-mono text-xs text-recording">
-                  ⚠ {dict.form.error}
-                </span>
+                <span className="font-mono text-xs text-recording">⚠ {dict.form.error}</span>
               ) : (
                 <div />
               )}

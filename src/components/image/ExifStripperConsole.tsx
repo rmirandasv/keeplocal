@@ -41,10 +41,7 @@ function getSensitivityClass(sensitivity: MetadataField["sensitivity"]): string 
   }
 }
 
-function getFieldLabel(
-  field: MetadataField,
-  labels: Dictionary["exifStripper"]["labels"],
-): string {
+function getFieldLabel(field: MetadataField, labels: Dictionary["exifStripper"]["labels"]): string {
   if (field.labelKey === "generic") {
     return field.value;
   }

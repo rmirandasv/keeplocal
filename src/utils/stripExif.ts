@@ -68,10 +68,7 @@ function loadImageFromFile(file: File): Promise<HTMLImageElement> {
   });
 }
 
-function canvasToBlob(
-  canvas: HTMLCanvasElement,
-  mimeType: SupportedImageType,
-): Promise<Blob> {
+function canvasToBlob(canvas: HTMLCanvasElement, mimeType: SupportedImageType): Promise<Blob> {
   return new Promise((resolve, reject) => {
     const quality = mimeType === "image/jpeg" ? JPEG_QUALITY : undefined;
 
@@ -93,20 +90,13 @@ export function isSupportedImageType(type: string): type is SupportedImageType {
   return SUPPORTED_IMAGE_TYPES.includes(type as SupportedImageType);
 }
 
-export async function stripExifFromImage(
-  file: File,
-  orientation = 1,
-): Promise<Blob> {
+export async function stripExifFromImage(file: File, orientation = 1): Promise<Blob> {
   if (!isSupportedImageType(file.type)) {
     throw new Error("unsupported_format");
   }
 
   const img = await loadImageFromFile(file);
-  const { width, height } = getRotatedDimensions(
-    img.naturalWidth,
-    img.naturalHeight,
-    orientation,
-  );
+  const { width, height } = getRotatedDimensions(img.naturalWidth, img.naturalHeight, orientation);
 
   const canvas = document.createElement("canvas");
   canvas.width = width;
@@ -126,8 +116,7 @@ export async function stripExifFromImage(
 export function buildCleanFilename(originalName: string, mimeType: SupportedImageType): string {
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
   const baseName = originalName.replace(/\.[^.]+$/, "") || "image";
-  const extension =
-    mimeType === "image/png" ? "png" : mimeType === "image/webp" ? "webp" : "jpg";
+  const extension = mimeType === "image/png" ? "png" : mimeType === "image/webp" ? "webp" : "jpg";
 
   return `keeplocal-clean-${baseName}-${timestamp}.${extension}`;
 }
