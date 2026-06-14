@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { getDictionary, locales } from "@/utils/i18n";
 import type { Metadata } from "next";
 import "../globals.css";
+import { SITE_URL } from "@/constants/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export async function generateMetadata({
   return {
     title: `${dict.common.appName} | ${dict.home.heroTitle}`,
     description: dict.home.heroSubtitle,
-    metadataBase: new URL("https://keeplocal.dev"),
+    metadataBase: new URL(SITE_URL),
     icons: {
       icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     },
