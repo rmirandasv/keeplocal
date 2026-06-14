@@ -49,6 +49,7 @@ next-env.d.ts
 .antigravity/
 **/brain/
 **/scratch/
+.agents/skills/
 
 # Local envs
 .env*.local

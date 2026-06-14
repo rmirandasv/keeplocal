@@ -60,8 +60,7 @@ Resize, compress, and convert images to modern formats before publishing:
 
 ```
 src/
-├── app/                  # Next.js App Router (separated by Route Groups)
-│   ├── (root)/           # Root layout and redirection page
+├── app/                  # Next.js App Router
 │   └── [lang]/           # Localized route segments (en, es)
 │       ├── page.tsx      # Localized landing page
 │       ├── record-once/  # "Record Once" capture interface
@@ -86,6 +85,14 @@ Make sure you have [pnpm](https://pnpm.io/) installed.
 
 ```bash
 pnpm install
+```
+
+### Install AI Skills
+
+To install or update the AI agent skills, run:
+
+```bash
+npx skills update
 ```
 
 > [!NOTE]
