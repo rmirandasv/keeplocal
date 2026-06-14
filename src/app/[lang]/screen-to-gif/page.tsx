@@ -1,6 +1,5 @@
 import { getDictionary } from "@/utils/i18n";
 import SiteHeader from "@/components/layout/SiteHeader";
-import SiteFooter from "@/components/layout/SiteFooter";
 import ScreenToGifConsole from "@/components/recorder/ScreenToGifConsole";
 import type { Metadata } from "next";
 
@@ -47,11 +46,6 @@ export default async function ScreenToGifPage({ params }: PageProps) {
 
         <ScreenToGifConsole lang={lang} dict={dict} />
       </main>
-
-      <SiteFooter
-        lang={lang}
-        dict={{ ...dict.common, footer: dict.home.footer, tools: dict.home.tools }}
-      />
     </div>
   );
 }

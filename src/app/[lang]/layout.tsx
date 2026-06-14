@@ -3,6 +3,7 @@ import { getDictionary, locales } from "@/utils/i18n";
 import type { Metadata } from "next";
 import "../globals.css";
 import { SITE_URL } from "@/constants/site";
+import SiteFooter from "@/components/layout/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,11 +49,15 @@ export async function generateMetadata({
 
 export default async function LocalizedLayout({ children, params }: LayoutProps) {
   const { lang } = await params;
-
+  const dict = getDictionary(lang);
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-canvas text-foreground-primary antialiased">
         {children}
+        <SiteFooter
+          lang={lang}
+          dict={{ ...dict.common, footer: dict.home.footer, tools: dict.home.tools }}
+        />
       </body>
     </html>
   );
