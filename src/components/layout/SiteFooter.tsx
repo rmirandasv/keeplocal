@@ -62,22 +62,22 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
               </li>
               <li>
                 <a
-                  href={PORTFOLIO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
-                >
-                  ronaldmiranda.dev
-                </a>
-              </li>
-              <li>
-                <a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
                 >
                   LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href={PORTFOLIO_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
+                >
+                  {dict.footer.portfolio}
                 </a>
               </li>
             </ul>
@@ -88,9 +88,9 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
           <p className="text-[11px] text-foreground-muted">
             © {new Date().getFullYear()} {dict.appName}. {dict.footer.copyright}
           </p>
-          <p className="text-[11px] text-foreground-muted max-w-md md:text-right">
+          <a className="text-[11px] text-foreground-muted max-w-md md:text-right" href={`${PORTFOLIO_URL}/#contact`} target="_blank" rel="noopener noreferrer">
             {dict.footer.createdBy} — <span className="italic">{dict.footer.aboutAuthor}</span>
-          </p>
+          </a>
         </div>
       </div>
     </footer>
