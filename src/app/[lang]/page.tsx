@@ -1,6 +1,5 @@
 import { getDictionary } from "@/utils/i18n";
 import SiteHeader from "@/components/layout/SiteHeader";
-import SiteFooter from "@/components/layout/SiteFooter";
 import HeroSection from "@/components/marketing/HeroSection";
 import ToolCard from "@/components/marketing/ToolCard";
 import HowItWorks from "@/components/marketing/HowItWorks";
@@ -191,8 +190,6 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           <FeedbackSection lang={lang} dict={dict.feedback} />
         </section>
       </main>
-
-      <SiteFooter lang={lang} dict={footerDict} />
     </div>
   );
 }
