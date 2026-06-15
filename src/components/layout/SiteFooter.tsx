@@ -1,20 +1,20 @@
 import Link from "next/link";
-import type { Dictionary, Locale } from "@/utils/i18n";
+import type { Dictionary } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
 import { GITHUB_REPO_URL, PORTFOLIO_URL, LINKEDIN_URL } from "@/constants/site";
+import { getInternalLink } from "@/utils/common";
 
 interface SiteFooterProps {
-  lang: Locale;
+  lang: string;
   dict: Dictionary["common"] & Pick<Dictionary["home"], "footer" | "tools">;
 }
 
 export default function SiteFooter({ lang, dict }: SiteFooterProps) {
-  const prefix = lang === "en" ? "" : `/${lang}`;
   const toolLinks = [
-    { name: dict.tools.recordOnce.title, href: `${prefix}/record-once` },
-    { name: dict.tools.screenToGif.title, href: `${prefix}/screen-to-gif` },
-    { name: dict.tools.exifStripper.title, href: `${prefix}/exif-stripper` },
-    { name: dict.tools.imageOptimizer.title, href: `${prefix}/image-optimizer` },
+    { name: dict.tools.recordOnce.title, href: getInternalLink(lang, "/record-once") },
+    { name: dict.tools.screenToGif.title, href: getInternalLink(lang, "/screen-to-gif") },
+    { name: dict.tools.exifStripper.title, href: getInternalLink(lang, "/exif-stripper") },
+    { name: dict.tools.imageOptimizer.title, href: getInternalLink(lang, "/image-optimizer") },
   ];
 
   return (

@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { getDictionary, Locale, locales } from "@/utils/i18n";
+import { getDictionary, locales, resolveLocale } from "@/utils/i18n";
 import type { Metadata } from "next";
 import "../globals.css";
 import { SITE_URL } from "@/constants/site";
@@ -21,13 +21,13 @@ export function generateStaticParams() {
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);
@@ -48,7 +48,7 @@ export async function generateMetadata({
 }
 
 export default async function LocalizedLayout({ children, params }: LayoutProps) {
-  const { lang } = await params;
+  const lang = resolveLocale((await params).lang);
   const dict = getDictionary(lang);
   return (
     <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>

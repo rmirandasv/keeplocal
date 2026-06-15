@@ -4,11 +4,10 @@ import ToolsPreview from "./ToolsPreview";
 import SignalPath from "./SignalPath";
 import HeroAtmosphere from "./HeroAtmosphere";
 import { GITHUB_REPO_URL } from "@/constants/site";
-import { Locale } from "@/utils/i18n";
 import { getInternalLink } from "@/utils/common";
 
 interface HeroSectionProps {
-  lang: Locale;
+  lang: string;
   heroTitle: string;
   heroSubtitle: string;
   privacyBadge: string;

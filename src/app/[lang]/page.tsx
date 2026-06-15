@@ -20,6 +20,7 @@ import {
   MapPin,
   ImageIcon,
 } from "lucide-react";
+import { getInternalLink } from "@/utils/common";
 
 interface PageProps {
   params: Promise<{ lang: string }>;
@@ -28,7 +29,6 @@ interface PageProps {
 export default async function LocalizedHomePage({ params }: PageProps) {
   const { lang } = await params;
   const dict = getDictionary(lang);
-  const prefix = lang === "en" ? "" : `/${lang}`;
 
   const howItWorksSteps = [
     {
@@ -91,7 +91,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               description={dict.home.tools.recordOnce.description}
               ctaLabel={dict.home.tools.recordOnce.cta}
               badges={dict.home.tools.recordOnce.badges}
-              href={`${prefix}/record-once`}
+              href={getInternalLink(lang, "/record-once")}
               glow="brand"
               icons={[
                 { icon: Video, label: "Video", color: "text-brand" },
@@ -104,7 +104,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               description={dict.home.tools.screenToGif.description}
               ctaLabel={dict.home.tools.screenToGif.cta}
               badges={dict.home.tools.screenToGif.badges}
-              href={`${prefix}/screen-to-gif`}
+              href={getInternalLink(lang, "/screen-to-gif")}
               glow="sky"
               icons={[
                 { icon: Monitor, label: "Screen", color: "text-accent-sky" },
@@ -117,7 +117,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               description={dict.home.tools.exifStripper.description}
               ctaLabel={dict.home.tools.exifStripper.cta}
               badges={dict.home.tools.exifStripper.badges}
-              href={`${prefix}/exif-stripper`}
+              href={getInternalLink(lang, "/exif-stripper")}
               glow="brand"
               icons={[
                 { icon: ShieldCheck, label: "Privacy", color: "text-accent-emerald" },
@@ -130,7 +130,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
               description={dict.home.tools.imageOptimizer.description}
               ctaLabel={dict.home.tools.imageOptimizer.cta}
               badges={dict.home.tools.imageOptimizer.badges}
-              href={`${prefix}/image-optimizer`}
+              href={getInternalLink(lang, "/image-optimizer")}
               glow="sky"
               icons={[
                 { icon: Zap, label: "Compress", color: "text-brand" },

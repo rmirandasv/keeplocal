@@ -1,17 +1,17 @@
-import { getDictionary, Locale } from "@/utils/i18n";
+import { getDictionary } from "@/utils/i18n";
 import SiteHeader from "@/components/layout/SiteHeader";
 import ImageOptimizerConsole from "@/components/image/ImageOptimizerConsole";
 import type { Metadata } from "next";
 import { getInternalLink } from "@/utils/common";
 
 interface PageProps {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);

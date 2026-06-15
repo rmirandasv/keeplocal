@@ -1,10 +1,10 @@
 import Link from "next/link";
-import type { Dictionary, Locale } from "@/utils/i18n";
+import type { Dictionary } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
 import { getInternalLink } from "@/utils/common";
 
 interface SiteHeaderProps {
-  lang: Locale;
+  lang: string;
   dict: Dictionary["common"];
   variant?: "home" | "tool";
   backHref?: string;

@@ -14,5 +14,9 @@ export const getDictionary = (lang: string | undefined): Dictionary => {
   return dictionaries[safeLang];
 };
 
+export const resolveLocale = (lang: string): Locale => {
+  return (lang === "es" ? "es" : "en") as Locale;
+};
+
 export const locales: Locale[] = ["en", "es"];
 export const defaultLocale: Locale = "en";

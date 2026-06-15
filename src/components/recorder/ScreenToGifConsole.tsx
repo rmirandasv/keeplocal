@@ -12,11 +12,11 @@ import {
   FileImage,
   Loader2,
 } from "lucide-react";
-import type { Dictionary, Locale } from "@/utils/i18n";
+import type { Dictionary } from "@/utils/i18n";
 import GitHubStarCta from "@/components/layout/GitHubStarCta";
 
 interface ScreenToGifConsoleProps {
-  lang: Locale;
+  lang: string;
   dict: Dictionary; // Localized full dictionary
 }
 
