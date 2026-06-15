@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { getDictionary, locales } from "@/utils/i18n";
+import { getDictionary, Locale, locales } from "@/utils/i18n";
 import type { Metadata } from "next";
 import "../globals.css";
 import { SITE_URL } from "@/constants/site";
@@ -21,13 +21,13 @@ export function generateStaticParams() {
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: Locale }>;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: Locale }>;
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);

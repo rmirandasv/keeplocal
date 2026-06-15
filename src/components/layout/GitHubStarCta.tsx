@@ -1,11 +1,7 @@
 "use client";
 
-/**
- * Intent: Subtle post-task CTA for tool sidebars (narrow width).
- * Layout: Always stacked — copy block on top, action buttons in a 2-col grid below.
- */
-
 import { GITHUB_REPO_URL, LINKEDIN_URL } from "@/constants/site";
+import { getDictionary, Locale } from "@/utils/i18n";
 import { Star } from "lucide-react";
 import { useParams } from "next/navigation";
 
@@ -16,8 +12,9 @@ interface GitHubStarCtaProps {
 
 export default function GitHubStarCta({ text, className = "" }: GitHubStarCtaProps) {
   const params = useParams();
-  const lang = (params?.lang as string) || "en";
-  const labelTag = lang === "es" ? "Apoya el código abierto" : "Support open source";
+  const lang = (params?.lang as Locale) || "en";
+  const dict = getDictionary(lang);
+  const labelTag = dict.common.starCta;
 
   return (
     <div

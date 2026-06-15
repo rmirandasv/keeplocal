@@ -1,14 +1,5 @@
 "use client";
 
-/**
- * Intent: Allow privacy-centric users to vote for upcoming tools or submit feedback without accounts or trackers.
- * Palette: Dark Cybernetic Deck style — --surface-1 (deck card), --surface-2 (inset elements/tabs), --brand (terminal cyan active state).
- * Depth: Borders-only layout consistent with KeepLocal. Active controls highlight with --brand glows.
- * Surfaces: Elevates from page canvas to --surface-1. Inputs are inset with --surface-2.
- * Typography: Geist Sans for descriptions/labels, Geist Mono for headers, counts, and status telemetry.
- * Spacing: Base spacing unit 4px (p-4, p-6, gap-4, gap-6).
- */
-
 import { useState, useEffect } from "react";
 import type { Dictionary } from "@/utils/i18n";
 import { PORTFOLIO_URL } from "@/constants/site";

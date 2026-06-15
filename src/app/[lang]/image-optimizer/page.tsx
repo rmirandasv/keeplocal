@@ -1,16 +1,17 @@
-import { getDictionary } from "@/utils/i18n";
+import { getDictionary, Locale } from "@/utils/i18n";
 import SiteHeader from "@/components/layout/SiteHeader";
 import ImageOptimizerConsole from "@/components/image/ImageOptimizerConsole";
 import type { Metadata } from "next";
+import { getInternalLink } from "@/utils/common";
 
 interface PageProps {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: Locale }>;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ lang: string }>;
+  params: Promise<{ lang: Locale }>;
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);
@@ -30,7 +31,7 @@ export default async function ImageOptimizerPage({ params }: PageProps) {
         lang={lang}
         dict={dict.common}
         variant="tool"
-        backHref={lang === "en" ? "/" : "/es"}
+        backHref={getInternalLink(lang)}
         backLabel={dict.common.backToHome}
       />
 

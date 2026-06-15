@@ -3,11 +3,6 @@ interface KeeplocalLogoProps {
   className?: string;
 }
 
-/**
- * Keeplocal mark — studio module frame, local signal rings,
- * and an inward loop suggesting data never leaves the device.
- * Stroke weights are tuned to stay legible at small display sizes.
- */
 export default function KeeplocalLogo({ size = 28, className }: KeeplocalLogoProps) {
   return (
     <svg

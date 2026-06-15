@@ -2,7 +2,6 @@ interface HeroAtmosphereProps {
   className?: string;
 }
 
-/** Decorative mesh orbs — studio signal spectrum, CSS-only */
 export default function HeroAtmosphere({ className = "" }: HeroAtmosphereProps) {
   return (
     <div

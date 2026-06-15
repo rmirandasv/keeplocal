@@ -1,10 +1,10 @@
 import Link from "next/link";
-import type { Dictionary } from "@/utils/i18n";
+import type { Dictionary, Locale } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
 import { GITHUB_REPO_URL, PORTFOLIO_URL, LINKEDIN_URL } from "@/constants/site";
 
 interface SiteFooterProps {
-  lang: string;
+  lang: Locale;
   dict: Dictionary["common"] & Pick<Dictionary["home"], "footer" | "tools">;
 }
 
@@ -57,7 +57,7 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
                   rel="noopener noreferrer"
                   className="text-xs text-foreground-secondary transition-colors hover:text-foreground-primary"
                 >
-                  GitHub Repo
+                  GitHub
                 </a>
               </li>
               <li>

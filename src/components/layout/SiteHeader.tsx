@@ -1,9 +1,10 @@
 import Link from "next/link";
-import type { Dictionary } from "@/utils/i18n";
+import type { Dictionary, Locale } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
+import { getInternalLink } from "@/utils/common";
 
 interface SiteHeaderProps {
-  lang: string;
+  lang: Locale;
   dict: Dictionary["common"];
   variant?: "home" | "tool";
   backHref?: string;
@@ -17,7 +18,6 @@ export default function SiteHeader({
   backHref,
   backLabel,
 }: SiteHeaderProps) {
-  const isEs = lang === "es";
 
   return (
     <header className="sticky top-0 z-50 border-b border-border-subtle bg-canvas/70 backdrop-blur-xl">
@@ -40,7 +40,7 @@ export default function SiteHeader({
             <span>{backLabel}</span>
           </Link>
         ) : (
-          <Link href={lang === "en" ? "/" : "/es"} className="group flex items-center gap-2.5">
+          <Link href={getInternalLink(lang)} className="group flex items-center gap-2.5">
             <LogoBadge
               size="lg"
               className="transition-shadow group-hover:shadow-[0_0_16px_hsl(var(--brand)/0.2)]"
@@ -54,7 +54,7 @@ export default function SiteHeader({
         <div className="flex items-center gap-4">
           {variant === "tool" && (
             <Link
-              href={lang === "en" ? "/" : "/es"}
+              href={getInternalLink(lang)}
               className="group hidden items-center gap-2.5 sm:flex"
             >
               <LogoBadge
@@ -71,7 +71,7 @@ export default function SiteHeader({
             <Link
               href="/"
               className={`rounded-full px-2.5 py-1 transition-colors ${
-                !isEs
+                lang === "en"
                   ? "bg-foreground-primary/[0.08] text-foreground-primary"
                   : "hover:text-foreground-secondary"
               }`}
@@ -81,7 +81,7 @@ export default function SiteHeader({
             <Link
               href="/es"
               className={`rounded-full px-2.5 py-1 transition-colors ${
-                isEs
+                lang === "es"
                   ? "bg-foreground-primary/[0.08] text-foreground-primary"
                   : "hover:text-foreground-secondary"
               }`}

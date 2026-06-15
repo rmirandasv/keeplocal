@@ -4,9 +4,11 @@ import ToolsPreview from "./ToolsPreview";
 import SignalPath from "./SignalPath";
 import HeroAtmosphere from "./HeroAtmosphere";
 import { GITHUB_REPO_URL } from "@/constants/site";
+import { Locale } from "@/utils/i18n";
+import { getInternalLink } from "@/utils/common";
 
 interface HeroSectionProps {
-  lang: string;
+  lang: Locale;
   heroTitle: string;
   heroSubtitle: string;
   privacyBadge: string;
@@ -42,7 +44,6 @@ export default function HeroSection({
   exifStripperLabel,
   metadataRemovedLabel,
 }: HeroSectionProps) {
-  const prefix = lang === "en" ? "" : `/${lang}`;
   return (
     <section className="hero-atmosphere relative w-full overflow-hidden pb-4 pt-2">
       <HeroAtmosphere />
@@ -65,21 +66,21 @@ export default function HeroSection({
 
           <div className="mt-9 flex w-full flex-col gap-3">
             <div className="flex flex-col flex-wrap gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <Link href={`${prefix}/record-once`} className="btn-primary group">
+              <Link href={getInternalLink(lang, "/record-once")} className="btn-primary group">
                 <Video
                   className="h-[18px] w-[18px] transition-transform group-hover:scale-105"
                   aria-hidden
                 />
                 <span>{ctaRecordOnce}</span>
               </Link>
-              <Link href={`${prefix}/screen-to-gif`} className="btn-secondary group">
+              <Link href={getInternalLink(lang, "/screen-to-gif")} className="btn-secondary group">
                 <Monitor
                   className="h-[18px] w-[18px] text-accent-sky transition-transform group-hover:scale-105"
                   aria-hidden
                 />
                 <span>{ctaScreenToGif}</span>
               </Link>
-              <Link href={`${prefix}/exif-stripper`} className="btn-secondary group">
+              <Link href={getInternalLink(lang, "/exif-stripper")} className="btn-secondary group">
                 <FileImage
                   className="h-[18px] w-[18px] text-accent-emerald transition-transform group-hover:scale-105"
                   aria-hidden
