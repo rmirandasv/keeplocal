@@ -50,6 +50,17 @@ Resize, compress, and convert images to modern formats before publishing:
 
 ---
 
+## 🔐 Core Module: Password Generator (`/password-gen`)
+
+Generate strong passwords and Diceware-style passphrases entirely in the browser:
+
+- **Cryptographic Randomness:** Uses `crypto.getRandomValues()` for every character and word — no server-side seeds.
+- **Dual Modes:** Random passwords with configurable charset, or passphrases from embedded EFF / Diceware word lists (EN/ES).
+- **Entropy Meter:** Estimated bits of entropy with strength indicator so you know how robust the output is.
+- **Zero Persistence:** Generated secrets live only in RAM; nothing is stored in localStorage or sent over the network.
+
+---
+
 ## 🌐 Localization (i18n) & SEO
 
 `keeplocal` supports English (default) and Spanish. The routing is designed with dynamic segment routing (e.g. `/en` and `/es`), which compile into static HTML files during build time. This ensures high SEO rankings and compatibility with pure static hosting (e.g., GitHub Pages).
@@ -66,10 +77,12 @@ src/
 │       ├── record-once/  # "Record Once" capture interface
 │       ├── screen-to-gif/ # Screen recording to GIF converter
 │       ├── exif-stripper/ # EXIF metadata removal tool
-│       └── image-optimizer/ # Image resize, compress, and convert
+│       ├── image-optimizer/ # Image resize, compress, and convert
+│       └── password-gen/ # Password and passphrase generator
 ├── components/           # UI Components
 │   ├── recorder/         # Record-once and screen-to-gif consoles
-│   └── image/            # EXIF stripper and image optimizer consoles
+│   ├── image/            # EXIF stripper and image optimizer consoles
+│   └── crypto/           # Password generator console
 ├── hooks/                # Custom React Hooks (useRecorder media streams)
 ├── locales/              # Localized translation dictionary JSON files
 └── utils/                # i18n helpers and converters

@@ -61,6 +61,12 @@
         "description": "Resize, compress, and convert images to modern formats like WebP or AVIF. See before-and-after file sizes instantly — all processing runs on your device.",
         "cta": "Open Image Optimizer",
         "badges": ["WebP", "AVIF", "Compress"]
+      },
+      "passwordGen": {
+        "title": "Password Generator",
+        "description": "Create strong random passwords and Diceware-style passphrases using crypto.getRandomValues(). Nothing is stored or sent to a server.",
+        "cta": "Open Password Generator",
+        "badges": ["Password", "Passphrase", "Entropy"]
       }
     },
     "trustStrip": ["No cookies", "No analytics", "Open source", "Works offline"],
@@ -210,6 +216,43 @@
       "unsupportedFormat": "Unsupported format. Please use JPEG, PNG, WebP, or BMP.",
       "fileTooLarge": "File exceeds the 25 MB limit.",
       "processingFailed": "Failed to optimize image. Please try another file."
+    }
+  },
+  "passwordGen": {
+    "title": "Password Generator",
+    "subtitle": "Generate secure passwords and passphrases locally. Uses your browser's cryptographic randomness — no seeds sent anywhere.",
+    "configDeckTitle": "Generator Settings",
+    "modeLabel": "Mode",
+    "modes": {
+      "password": "Password",
+      "passphrase": "Passphrase"
+    },
+    "lengthLabel": "Length: {value} characters",
+    "wordCountLabel": "Words: {value}",
+    "charsetLabel": "Character sets",
+    "charset": {
+      "lowercase": "Lowercase (a-z)",
+      "uppercase": "Uppercase (A-Z)",
+      "numbers": "Numbers (0-9)",
+      "symbols": "Symbols (!@#$…)"
+    },
+    "separatorLabel": "Word separator",
+    "capitalizeWordsLabel": "Capitalize each word",
+    "regenerate": "Generate new",
+    "copySecret": "Copy to clipboard",
+    "copied": "Copied!",
+    "showSecret": "Show secret",
+    "hideSecret": "Hide secret",
+    "entropyLabel": "Estimated entropy: {bits} bits",
+    "strength": {
+      "weak": "Weak",
+      "fair": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very strong"
+    },
+    "privacyNote": "Generated locally in your browser. Nothing is stored, logged, or transmitted.",
+    "errors": {
+      "emptyCharset": "Select at least one character set to generate a password."
     }
   },
   "feedback": {

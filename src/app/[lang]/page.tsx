@@ -18,6 +18,8 @@ import {
   Gauge,
   MapPin,
   ImageIcon,
+  KeyRound,
+  Sparkles,
 } from "lucide-react";
 import { getInternalLink } from "@/utils/common";
 
@@ -135,6 +137,19 @@ export default async function LocalizedHomePage({ params }: PageProps) {
                 { icon: Zap, label: "Compress", color: "text-brand" },
                 { icon: ImageIcon, label: "WebP", color: "text-accent-sky" },
                 { icon: FileImage, label: "AVIF", color: "text-accent-emerald" },
+              ]}
+            />
+            <ToolCard
+              title={dict.home.tools.passwordGen.title}
+              description={dict.home.tools.passwordGen.description}
+              ctaLabel={dict.home.tools.passwordGen.cta}
+              badges={dict.home.tools.passwordGen.badges}
+              href={getInternalLink(lang, "/password-gen")}
+              glow="brand"
+              icons={[
+                { icon: KeyRound, label: "Password", color: "text-brand" },
+                { icon: ShieldCheck, label: "Local", color: "text-accent-emerald" },
+                { icon: Sparkles, label: "Random", color: "text-accent-sky" },
               ]}
             />
           </div>

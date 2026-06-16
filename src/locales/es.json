@@ -61,6 +61,12 @@
         "description": "Redimensiona, comprime y convierte imágenes a formatos modernos como WebP o AVIF. Compara el peso antes y después al instante — todo en tu dispositivo.",
         "cta": "Abrir Optimizador",
         "badges": ["WebP", "AVIF", "Comprimir"]
+      },
+      "passwordGen": {
+        "title": "Generador de Contraseñas",
+        "description": "Crea contraseñas aleatorias fuertes y frases de paso estilo Diceware con crypto.getRandomValues(). Nada se almacena ni se envía a un servidor.",
+        "cta": "Abrir Generador",
+        "badges": ["Contraseña", "Frase de paso", "Entropía"]
       }
     },
     "trustStrip": ["Sin cookies", "Sin analíticas", "Código abierto", "Funciona offline"],
@@ -210,6 +216,43 @@
       "unsupportedFormat": "Formato no soportado. Usa JPEG, PNG, WebP o BMP.",
       "fileTooLarge": "El archivo supera el límite de 25 MB.",
       "processingFailed": "Error al optimizar la imagen. Prueba con otro archivo."
+    }
+  },
+  "passwordGen": {
+    "title": "Generador de Contraseñas",
+    "subtitle": "Genera contraseñas y frases de paso seguras de forma local. Usa la aleatoriedad criptográfica de tu navegador — sin enviar semillas a ningún sitio.",
+    "configDeckTitle": "Ajustes del generador",
+    "modeLabel": "Modo",
+    "modes": {
+      "password": "Contraseña",
+      "passphrase": "Frase de paso"
+    },
+    "lengthLabel": "Longitud: {value} caracteres",
+    "wordCountLabel": "Palabras: {value}",
+    "charsetLabel": "Conjuntos de caracteres",
+    "charset": {
+      "lowercase": "Minúsculas (a-z)",
+      "uppercase": "Mayúsculas (A-Z)",
+      "numbers": "Números (0-9)",
+      "symbols": "Símbolos (!@#$…)"
+    },
+    "separatorLabel": "Separador de palabras",
+    "capitalizeWordsLabel": "Capitalizar cada palabra",
+    "regenerate": "Generar nueva",
+    "copySecret": "Copiar al portapapeles",
+    "copied": "¡Copiado!",
+    "showSecret": "Mostrar secreto",
+    "hideSecret": "Ocultar secreto",
+    "entropyLabel": "Entropía estimada: {bits} bits",
+    "strength": {
+      "weak": "Débil",
+      "fair": "Aceptable",
+      "strong": "Fuerte",
+      "veryStrong": "Muy fuerte"
+    },
+    "privacyNote": "Generado localmente en tu navegador. Nada se almacena, registra ni transmite.",
+    "errors": {
+      "emptyCharset": "Selecciona al menos un conjunto de caracteres para generar una contraseña."
     }
   },
   "feedback": {

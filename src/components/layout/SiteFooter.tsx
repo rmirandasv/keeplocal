@@ -15,6 +15,7 @@ export default function SiteFooter({ lang, dict }: SiteFooterProps) {
     { name: dict.tools.screenToGif.title, href: getInternalLink(lang, "/screen-to-gif") },
     { name: dict.tools.exifStripper.title, href: getInternalLink(lang, "/exif-stripper") },
     { name: dict.tools.imageOptimizer.title, href: getInternalLink(lang, "/image-optimizer") },
+    { name: dict.tools.passwordGen.title, href: getInternalLink(lang, "/password-gen") },
   ];
 
   return (
