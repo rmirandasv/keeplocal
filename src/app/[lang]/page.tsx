@@ -63,17 +63,10 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           heroSubtitle={dict.home.heroSubtitle}
           privacyBadge={dict.home.privacyBadge}
           ctaRecordOnce={dict.home.ctaRecordOnce}
-          ctaScreenToGif={dict.home.ctaScreenToGif}
-          ctaExifStripper={dict.home.ctaExifStripper}
           ctaExplore={dict.home.ctaExplore}
-          githubCta={dict.home.githubCta}
           signalPath={dict.home.signalPath as [string, string, string]}
           recordOnceLabel={dict.home.tools.recordOnce.title}
           recordingLabel={dict.recorder.recordingState}
-          screenToGifLabel={dict.home.tools.screenToGif.title}
-          gifReadyLabel={dict.home.gifReadyLabel}
-          exifStripperLabel={dict.home.tools.exifStripper.title}
-          metadataRemovedLabel={dict.home.metadataRemovedLabel}
         />
 
         {/* Trust strip */}

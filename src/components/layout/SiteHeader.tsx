@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Dictionary } from "@/utils/i18n";
 import LogoBadge from "@/components/brand/LogoBadge";
+import { MdiGithub } from "@/components/icons/MdiGithub";
+import { GITHUB_REPO_URL } from "@/constants/site";
 import { getInternalLink } from "@/utils/common";
 
 interface SiteHeaderProps {
@@ -18,7 +20,6 @@ export default function SiteHeader({
   backHref,
   backLabel,
 }: SiteHeaderProps) {
-
   return (
     <header className="sticky top-0 z-50 border-b border-border-subtle bg-canvas/70 backdrop-blur-xl">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
@@ -51,7 +52,7 @@ export default function SiteHeader({
           </Link>
         )}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {variant === "tool" && (
             <Link
               href={getInternalLink(lang)}
@@ -89,6 +90,16 @@ export default function SiteHeader({
               ES
             </Link>
           </div>
+
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border-default bg-foreground-primary/[0.03] text-foreground-secondary transition-colors hover:border-border-emphasis hover:text-foreground-primary"
+          >
+            <MdiGithub className="h-[18px] w-[18px]" />
+          </a>
         </div>
       </div>
     </header>
