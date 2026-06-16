@@ -200,10 +200,10 @@ export default async function LocalizedHomePage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* Roadmap & Feedback */}
+        {/* Roadmap & Feedback
         <section className="mt-16 w-full md:mt-24">
           <FeedbackSection lang={lang} dict={dict.feedback} />
-        </section>
+        </section> */}
       </main>
     </div>
   );
