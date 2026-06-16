@@ -12,7 +12,6 @@ A suite of private, zero-tracking, client-side web utilities built with **Next.j
 
 - **No Backend / Serverless:** Your media, documents, and data never touch a remote server.
 - **Zero Tracking:** No tracking scripts, no database logs, no telemetry, and no analytical cookies.
-- **Offline-First:** Once loaded, the tools can run entirely offline or in air-gapped environments.
 - **No Logins:** Instant functionality. No user databases or tracking profiles.
 - **Open Source:** Fully transparent code. Inspect the code, verify the local-only execution yourself.
 
