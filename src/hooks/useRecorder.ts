@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 export type RecorderStatus =
-  | "unallowed" // Permisos no solicitados o denegados
-  | "idle" // Permisos concedidos, listo para configurar/grabar
-  | "preparing" // Iniciando dispositivos
-  | "recording" // Grabación activa
-  | "paused" // Grabación en pausa
-  | "stopped" // Grabación terminada, archivo listo
-  | "error"; // Error de hardware/permisos
+  | "unallowed" // Permissions not requested or denied
+  | "idle" // Permissions granted, ready to configure/record
+  | "preparing" // Starting devices
+  | "recording" // Active recording
+  | "paused" // Recording paused
+  | "stopped" // Recording stopped, file ready
+  | "error"; // Error of hardware/permissions
 
 export interface MediaDeviceOption {
   id: string;
