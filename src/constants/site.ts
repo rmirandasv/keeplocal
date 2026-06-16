@@ -4,3 +4,6 @@ export const GITHUB_PROFILE_URL = "https://github.com/rmirandasv";
 export const PORTFOLIO_URL = "https://www.ronaldmiranda.dev";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/rmirandasv";
 export const SITE_URL = "https://www.keeplocal.cc";
+export const OG_IMAGE_PATH = "/og/keeplocal.png";
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;

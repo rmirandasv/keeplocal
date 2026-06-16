@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { getDictionary, locales, resolveLocale } from "@/utils/i18n";
 import type { Metadata } from "next";
 import "../globals.css";
-import { SITE_URL } from "@/constants/site";
+import { SITE_URL, OG_IMAGE_PATH, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT } from "@/constants/site";
 import SiteFooter from "@/components/layout/SiteFooter";
 
 const geistSans = Geist({
@@ -31,18 +31,37 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const dict = getDictionary(lang);
+  const title = `${dict.common.appName} | ${dict.home.heroTitle}`;
+  const description = dict.home.heroSubtitle;
+
   return {
-    title: `${dict.common.appName} | ${dict.home.heroTitle}`,
-    description: dict.home.heroSubtitle,
+    title,
+    description,
     metadataBase: new URL(SITE_URL),
     icons: {
       icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     },
     openGraph: {
-      title: `${dict.common.appName} | ${dict.home.heroTitle}`,
-      description: dict.home.heroSubtitle,
+      title,
+      description,
       type: "website",
       locale: lang === "es" ? "es_ES" : "en_US",
+      url: `/${lang}`,
+      siteName: dict.common.appName,
+      images: [
+        {
+          url: OG_IMAGE_PATH,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+          alt: dict.common.appName,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [OG_IMAGE_PATH],
     },
   };
 }
