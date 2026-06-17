@@ -38,9 +38,6 @@ export async function generateMetadata({
     title,
     description,
     metadataBase: new URL(SITE_URL),
-    icons: {
-      icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    },
     openGraph: {
       title,
       description,
